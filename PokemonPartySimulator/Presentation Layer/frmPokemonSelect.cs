@@ -13,6 +13,9 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+//使用 TableAdapter。
+//優點：因為要顯示大量資料列表，DataSet 幫你把資料一次拉到記憶體 (DataTable)，然後用 DataView 做篩選，
+//這樣做搜尋功能（如 ApplyFilter）非常快，不用每次打字都去問資料庫。
 namespace PokemonPartySimulator.Presentation_Layer
 {
     public partial class frmPokemonSelect : Form

@@ -42,6 +42,8 @@
             System.Windows.Forms.Label speedLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPokemonSelect));
             this.pokemonIDTextBox = new System.Windows.Forms.TextBox();
+            this.pokemonDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.pokemonPartySimulatorDataSet = new PokemonPartySimulator.PokemonPartySimulatorDataSet();
             this.name_ENTextBox = new System.Windows.Forms.TextBox();
             this.name_CHTextBox = new System.Windows.Forms.TextBox();
             this.txtType1 = new System.Windows.Forms.TextBox();
@@ -66,10 +68,9 @@
             this.labDEF = new System.Windows.Forms.Label();
             this.labSP = new System.Windows.Forms.Label();
             this.labSpeed = new System.Windows.Forms.Label();
-            this.pokemonDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.pokemonPartySimulatorDataSet = new PokemonPartySimulator.PokemonPartySimulatorDataSet();
             this.pokemonDataTableAdapter = new PokemonPartySimulator.PokemonPartySimulatorDataSetTableAdapters.PokemonDataTableAdapter();
             this.btnJoinTeam = new System.Windows.Forms.Button();
+            this.labLargeName = new System.Windows.Forms.Label();
             pokemonIDLabel = new System.Windows.Forms.Label();
             name_ENLabel = new System.Windows.Forms.Label();
             name_CHLabel = new System.Windows.Forms.Label();
@@ -81,9 +82,9 @@
             defenseLabel = new System.Windows.Forms.Label();
             specialLabel = new System.Windows.Forms.Label();
             speedLabel = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLarge)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pokemonDataBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pokemonPartySimulatorDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLarge)).BeginInit();
             this.SuspendLayout();
             // 
             // pokemonIDLabel
@@ -201,17 +202,27 @@
             this.pokemonIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pokemonDataBindingSource, "PokemonID", true));
             this.pokemonIDTextBox.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.pokemonIDTextBox.Location = new System.Drawing.Point(926, 97);
-            this.pokemonIDTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pokemonIDTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.pokemonIDTextBox.Name = "pokemonIDTextBox";
             this.pokemonIDTextBox.Size = new System.Drawing.Size(156, 27);
             this.pokemonIDTextBox.TabIndex = 2;
+            // 
+            // pokemonDataBindingSource
+            // 
+            this.pokemonDataBindingSource.DataMember = "PokemonData";
+            this.pokemonDataBindingSource.DataSource = this.pokemonPartySimulatorDataSet;
+            // 
+            // pokemonPartySimulatorDataSet
+            // 
+            this.pokemonPartySimulatorDataSet.DataSetName = "PokemonPartySimulatorDataSet";
+            this.pokemonPartySimulatorDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // name_ENTextBox
             // 
             this.name_ENTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pokemonDataBindingSource, "Name_EN", true));
             this.name_ENTextBox.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.name_ENTextBox.Location = new System.Drawing.Point(926, 134);
-            this.name_ENTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.name_ENTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.name_ENTextBox.Name = "name_ENTextBox";
             this.name_ENTextBox.Size = new System.Drawing.Size(156, 27);
             this.name_ENTextBox.TabIndex = 4;
@@ -221,7 +232,7 @@
             this.name_CHTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pokemonDataBindingSource, "Name_CH", true));
             this.name_CHTextBox.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.name_CHTextBox.Location = new System.Drawing.Point(926, 172);
-            this.name_CHTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.name_CHTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.name_CHTextBox.Name = "name_CHTextBox";
             this.name_CHTextBox.Size = new System.Drawing.Size(156, 27);
             this.name_CHTextBox.TabIndex = 6;
@@ -231,7 +242,7 @@
             this.txtType1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pokemonDataBindingSource, "Type1", true));
             this.txtType1.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.txtType1.Location = new System.Drawing.Point(926, 209);
-            this.txtType1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtType1.Margin = new System.Windows.Forms.Padding(4);
             this.txtType1.Name = "txtType1";
             this.txtType1.Size = new System.Drawing.Size(156, 27);
             this.txtType1.TabIndex = 8;
@@ -241,7 +252,7 @@
             this.txtType2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pokemonDataBindingSource, "Type2", true));
             this.txtType2.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.txtType2.Location = new System.Drawing.Point(926, 246);
-            this.txtType2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtType2.Margin = new System.Windows.Forms.Padding(4);
             this.txtType2.Name = "txtType2";
             this.txtType2.Size = new System.Drawing.Size(156, 27);
             this.txtType2.TabIndex = 10;
@@ -251,7 +262,7 @@
             this.cbType.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.cbType.FormattingEnabled = true;
             this.cbType.Location = new System.Drawing.Point(229, 112);
-            this.cbType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbType.Margin = new System.Windows.Forms.Padding(4);
             this.cbType.Name = "cbType";
             this.cbType.Size = new System.Drawing.Size(170, 32);
             this.cbType.TabIndex = 23;
@@ -573,16 +584,6 @@
             this.labSpeed.Size = new System.Drawing.Size(0, 16);
             this.labSpeed.TabIndex = 43;
             // 
-            // pokemonDataBindingSource
-            // 
-            this.pokemonDataBindingSource.DataMember = "PokemonData";
-            this.pokemonDataBindingSource.DataSource = this.pokemonPartySimulatorDataSet;
-            // 
-            // pokemonPartySimulatorDataSet
-            // 
-            this.pokemonPartySimulatorDataSet.DataSetName = "PokemonPartySimulatorDataSet";
-            this.pokemonPartySimulatorDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // pokemonDataTableAdapter
             // 
             this.pokemonDataTableAdapter.ClearBeforeFill = true;
@@ -598,11 +599,24 @@
             this.btnJoinTeam.UseVisualStyleBackColor = true;
             this.btnJoinTeam.Click += new System.EventHandler(this.btnJoinTeam_Click);
             // 
+            // labLargeName
+            // 
+            this.labLargeName.AutoSize = true;
+            this.labLargeName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pokemonDataBindingSource, "Name_CH", true));
+            this.labLargeName.Font = new System.Drawing.Font("微軟正黑體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.labLargeName.Location = new System.Drawing.Point(620, 104);
+            this.labLargeName.Name = "labLargeName";
+            this.labLargeName.Size = new System.Drawing.Size(178, 30);
+            this.labLargeName.TabIndex = 45;
+            this.labLargeName.Text = "labLargeName";
+            this.labLargeName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // frmPokemonSelect
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1147, 600);
+            this.Controls.Add(this.labLargeName);
             this.Controls.Add(this.btnJoinTeam);
             this.Controls.Add(this.labSpeed);
             this.Controls.Add(this.labSP);
@@ -639,13 +653,13 @@
             this.Controls.Add(specialLabel);
             this.Controls.Add(speedLabel);
             this.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmPokemonSelect";
             this.Text = "frmPokemonSelect";
             this.Load += new System.EventHandler(this.frmPokemonSelect_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLarge)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pokemonDataBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pokemonPartySimulatorDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLarge)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -682,5 +696,6 @@
         private System.Windows.Forms.Label labSP;
         private System.Windows.Forms.Label labSpeed;
         private System.Windows.Forms.Button btnJoinTeam;
+        private System.Windows.Forms.Label labLargeName;
     }
 }

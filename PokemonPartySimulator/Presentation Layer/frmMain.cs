@@ -5,10 +5,12 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+//主要資料流使用 Typed DataSet (TableAdapter) 進行快速開發與記憶體操作，
+//但在特定複雜查詢或精準讀取時，混用了原生 ADO.NET 以優化效能。
 namespace PokemonPartySimulator
 {
     public partial class frmMain : Form
@@ -89,7 +91,9 @@ namespace PokemonPartySimulator
 
         private void labRight_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("    免責聲明：\n\n    本專案為個人練習與學術用途（C# WinForm 與 SQL 資料庫實作），非商業專案。\n    所有寶可夢相關的圖片、名稱、數據等素材，\n    其版權皆屬於 Nintendo、Creatures Inc. 以及 GAME FREAK Inc. 所有。\n    若有侵權疑慮請聯繫開發者，將立即下架相關內容。\n\n    Disclaimer:\n    This project is for educational and personal portfolio purposes only.\n    All Pokémon images, names, and related media are intellectual property of \n    Nintendo, Creatures Inc., and GAME FREAK Inc.\n    No copyright infringement is intended.");
+            MessageBox.Show("    免責聲明：\n\n    本專案為個人練習與學術用途（C# WinForm 與 SQL 資料庫實作），非商業專案。\n    所有寶可夢相關的圖片、名稱、數據等素材，\n    其版權皆屬於 Nintendo、Creatures Inc. 以及 GAME FREAK Inc. 所有。\n    若有侵權疑慮請聯繫開發者，將立即下架相關內容。" +
+                "\n\n    Disclaimer:\n    This project is for educational and personal portfolio purposes only.\n    All Pokémon images, names, and related media are intellectual property of \n    Nintendo, Creatures Inc., and GAME FREAK Inc.\n    No copyright infringement is intended." +
+                "\n\n    Trash icon created by Freepik Flaticon");
         }
 
         private void labClose_Click(object sender, EventArgs e)
