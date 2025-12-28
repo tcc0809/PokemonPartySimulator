@@ -1,13 +1,6 @@
 ﻿using PokemonPartySimulator.Presentation_Layer;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 //主要資料流使用 Typed DataSet (TableAdapter) 進行快速開發與記憶體操作，
 //但在特定複雜查詢或精準讀取時，混用了原生 ADO.NET 以優化效能。
@@ -19,63 +12,39 @@ namespace PokemonPartySimulator
         {
             InitializeComponent();
             panel1.BackColor = Color.FromArgb(65, 204, 212, 230);
+            // 1. 把所有需要「移入特效」的 Label 整理成一個陣列
+            Label[] menuLabels = { labNew, labLoad, labRight, labClose }; // 假設你有這三個
+
+            // 2. 用迴圈統一訂閱 (+=)
+            foreach (Label lab in menuLabels)
+            {
+                lab.MouseEnter += labSelect; // 訂閱「滑鼠移入」
+                lab.MouseLeave += labLeave; // 訂閱「滑鼠移出」
+
+                lab.Cursor = Cursors.Hand;
+            }
         }
-        private void labSelect(Label targetLabel)
+
+        private void labSelect(object sender, EventArgs e)
         {
+            Label targetLabel = (Label) sender;
             pbBall.Location = new Point(targetLabel.Location.X + 90, targetLabel.Location.Y-13);
             pbBall.Visible = true;
 
             Font oldFont = targetLabel.Font;
             targetLabel.Font = new Font(oldFont, oldFont.Style | FontStyle.Bold);
         }
-
-        private void labNew_MouseEnter(object sender, EventArgs e)
+        private void labLeave(object sender, EventArgs e)
         {
-            labSelect(labNew);
-        }
-
-        private void labLoad_MouseEnter(object sender, EventArgs e)
-        {
-            labSelect(labLoad);
-        }
-
-        private void labRight_MouseEnter(object sender, EventArgs e)
-        {
-            labSelect(labRight);
-        }
-
-        private void labClose_MouseEnter(object sender, EventArgs e)
-        {
-            labSelect(labClose);
-        }
-        private void labLeave(Label targetLabel)
-        {
-            pbBall.Visible = false;
-
+            Label targetLabel = (Label)sender;
             Font oldFont = targetLabel.Font;
-
-            // 核心邏輯：AND 上 (NOT 粗體)
+            pbBall.Visible = false;
+            // AND 上 (NOT 粗體)
             // 1. FontStyle.Bold 前面加上 ~ (NOT，取反，把 粗體 那一位元從 1 變成 0)
             // 2. 用 & (AND) 運算：只有原本是 1 且取反後是 1 的位元才會保留，粗體的那一位元就會強制變成 0
             targetLabel.Font = new Font(oldFont,oldFont.Style & ~FontStyle.Bold);
         }
-        private void labNew_MouseLeave(object sender, EventArgs e)
-        {
-            labLeave(labNew);
-        }
-        private void labLoad_MouseLeave(object sender, EventArgs e)
-        {
-            labLeave(labLoad);
-        }
-
-        private void labRight_MouseLeave(object sender, EventArgs e)
-        {
-            labLeave(labRight);
-        }
-        private void labClose_MouseLeave(object sender, EventArgs e)
-        {
-            labLeave(labClose);
-        }
+ 
 
         private void labNew_Click(object sender, EventArgs e)
         {
@@ -85,8 +54,19 @@ namespace PokemonPartySimulator
 
         private void labLoad_Click(object sender, EventArgs e)
         {
-            frmTeamLoad LoadTeam = new frmTeamLoad();
-            LoadTeam.Show();
+            using (frmTeamLoad loadForm = new frmTeamLoad())
+            {
+                if (loadForm.ShowDialog() == DialogResult.OK)
+                {
+                    int teamID = loadForm.SelectedTeamID;
+
+                    // 開啟編輯器視窗，並傳入 TeamID (呼叫多載的建構子)
+                    using (frmTeamEditor editorForm = new frmTeamEditor(teamID))
+                    {
+                        editorForm.ShowDialog();
+                    }
+                }
+            }
         }
 
         private void labRight_Click(object sender, EventArgs e)

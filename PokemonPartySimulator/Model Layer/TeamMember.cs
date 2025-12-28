@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PokemonPartySimulator.Classes
 {
-    internal class TeamMemberData
+    internal class TeamMember
     {
         internal int SlotIndex { get; set; } // 0~5
         internal int PokemonID { get; set; }
@@ -16,5 +16,10 @@ namespace PokemonPartySimulator.Classes
         internal int Move2_ID { get; set; }
         internal int Move3_ID { get; set; }
         internal int Move4_ID { get; set; }
+
+        // 預留以後擴充
+        internal int? ItemID { get; set; }
+        internal int? AbilityID { get; set; }
     }
+
 }

@@ -32,16 +32,22 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTeamEditor));
             this.panel1 = new System.Windows.Forms.Panel();
             this.imageListPM = new System.Windows.Forms.ImageList(this.components);
+            this.txtTeamName = new System.Windows.Forms.TextBox();
+            this.labTeamName = new System.Windows.Forms.Label();
+            this.btnSaveTeam = new System.Windows.Forms.Button();
             this.slot5 = new PokemonPartySimulator.ucTeamSlot();
             this.slot4 = new PokemonPartySimulator.ucTeamSlot();
             this.slot3 = new PokemonPartySimulator.ucTeamSlot();
             this.slot2 = new PokemonPartySimulator.ucTeamSlot();
             this.slot1 = new PokemonPartySimulator.ucTeamSlot();
             this.slot0 = new PokemonPartySimulator.ucTeamSlot();
-            this.txtTeamName = new System.Windows.Forms.TextBox();
-            this.labTeamName = new System.Windows.Forms.Label();
-            this.btnSaveTeam = new System.Windows.Forms.Button();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.btnClearTeam = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -215,6 +221,38 @@
             this.imageListPM.Images.SetKeyName(149, "150.png");
             this.imageListPM.Images.SetKeyName(150, "151.png");
             // 
+            // txtTeamName
+            // 
+            this.txtTeamName.BackColor = System.Drawing.Color.AliceBlue;
+            this.txtTeamName.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.txtTeamName.Location = new System.Drawing.Point(17, 51);
+            this.txtTeamName.Name = "txtTeamName";
+            this.txtTeamName.Size = new System.Drawing.Size(175, 35);
+            this.txtTeamName.TabIndex = 1;
+            // 
+            // labTeamName
+            // 
+            this.labTeamName.AutoSize = true;
+            this.labTeamName.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.labTeamName.Location = new System.Drawing.Point(12, 9);
+            this.labTeamName.Name = "labTeamName";
+            this.labTeamName.Size = new System.Drawing.Size(101, 26);
+            this.labTeamName.TabIndex = 2;
+            this.labTeamName.Text = "隊伍名稱:";
+            // 
+            // btnSaveTeam
+            // 
+            this.btnSaveTeam.BackColor = System.Drawing.Color.AliceBlue;
+            this.btnSaveTeam.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSaveTeam.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btnSaveTeam.Location = new System.Drawing.Point(0, 0);
+            this.btnSaveTeam.Name = "btnSaveTeam";
+            this.btnSaveTeam.Size = new System.Drawing.Size(469, 77);
+            this.btnSaveTeam.TabIndex = 3;
+            this.btnSaveTeam.Text = "儲存隊伍";
+            this.btnSaveTeam.UseVisualStyleBackColor = false;
+            this.btnSaveTeam.Click += new System.EventHandler(this.btnSaveTeam_Click);
+            // 
             // slot5
             // 
             this.slot5.BackColor = System.Drawing.Color.AliceBlue;
@@ -287,36 +325,36 @@
             this.slot0.SlotIndex = 0;
             this.slot0.TabIndex = 0;
             // 
-            // txtTeamName
+            // splitContainer1
             // 
-            this.txtTeamName.BackColor = System.Drawing.Color.AliceBlue;
-            this.txtTeamName.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtTeamName.Location = new System.Drawing.Point(17, 51);
-            this.txtTeamName.Name = "txtTeamName";
-            this.txtTeamName.Size = new System.Drawing.Size(175, 35);
-            this.txtTeamName.TabIndex = 1;
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.splitContainer1.Location = new System.Drawing.Point(0, 604);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(1);
+            this.splitContainer1.Name = "splitContainer1";
             // 
-            // labTeamName
+            // splitContainer1.Panel1
             // 
-            this.labTeamName.AutoSize = true;
-            this.labTeamName.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.labTeamName.Location = new System.Drawing.Point(12, 9);
-            this.labTeamName.Name = "labTeamName";
-            this.labTeamName.Size = new System.Drawing.Size(101, 26);
-            this.labTeamName.TabIndex = 2;
-            this.labTeamName.Text = "隊伍名稱:";
+            this.splitContainer1.Panel1.Controls.Add(this.btnClearTeam);
             // 
-            // btnSaveTeam
+            // splitContainer1.Panel2
             // 
-            this.btnSaveTeam.BackColor = System.Drawing.Color.AliceBlue;
-            this.btnSaveTeam.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btnSaveTeam.Location = new System.Drawing.Point(699, 609);
-            this.btnSaveTeam.Name = "btnSaveTeam";
-            this.btnSaveTeam.Size = new System.Drawing.Size(248, 60);
-            this.btnSaveTeam.TabIndex = 3;
-            this.btnSaveTeam.Text = "儲存隊伍";
-            this.btnSaveTeam.UseVisualStyleBackColor = false;
-            this.btnSaveTeam.Click += new System.EventHandler(this.btnSaveTeam_Click);
+            this.splitContainer1.Panel2.Controls.Add(this.btnSaveTeam);
+            this.splitContainer1.Size = new System.Drawing.Size(959, 77);
+            this.splitContainer1.SplitterDistance = 486;
+            this.splitContainer1.TabIndex = 4;
+            // 
+            // btnClearTeam
+            // 
+            this.btnClearTeam.BackColor = System.Drawing.Color.AliceBlue;
+            this.btnClearTeam.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnClearTeam.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btnClearTeam.Location = new System.Drawing.Point(0, 0);
+            this.btnClearTeam.Name = "btnClearTeam";
+            this.btnClearTeam.Size = new System.Drawing.Size(486, 77);
+            this.btnClearTeam.TabIndex = 5;
+            this.btnClearTeam.Text = "清空隊伍";
+            this.btnClearTeam.UseVisualStyleBackColor = false;
+            this.btnClearTeam.Click += new System.EventHandler(this.btnClearTeam_Click);
             // 
             // frmTeamEditor
             // 
@@ -324,13 +362,17 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(959, 681);
-            this.Controls.Add(this.btnSaveTeam);
+            this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.labTeamName);
             this.Controls.Add(this.txtTeamName);
             this.Controls.Add(this.panel1);
             this.Name = "frmTeamEditor";
             this.Text = "frmTeamEditor";
             this.panel1.ResumeLayout(false);
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -349,5 +391,7 @@
         private System.Windows.Forms.TextBox txtTeamName;
         private System.Windows.Forms.Label labTeamName;
         private System.Windows.Forms.Button btnSaveTeam;
+        private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.Button btnClearTeam;
     }
 }

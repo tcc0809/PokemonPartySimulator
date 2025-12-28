@@ -14,14 +14,18 @@ namespace PokemonPartySimulator
     {
         // 暫存資料
         public int SlotIndex { get; set; } // 這是第幾格 (0-5)
-        public event EventHandler RemoveClicked; // 1. 宣告一個新的事件 (專門給主視窗訂閱「刪除」動作)
+        
         public int PokemonID { get; private set; } = -1;
         // private set (封裝)：外部（主視窗）不能直接修改 ID（例如不能寫 slot1.PokemonID = 5），必須透過你提供的 SetPokemon 或 ClearSlot 方法來改。
         // 這樣保證了 UI 和數據永遠同步，不會出現「ID 改了但圖片沒變」的 Bug。
         // -1 代表空位，預設為1代表還沒選。
 
-        // 定義一個自訂事件，讓主視窗訂閱
+        // 定義自訂事件，讓主視窗訂閱
         public event EventHandler SlotClicked;
+        public event EventHandler RemoveClicked;
+        public event EventHandler SlotMouseEnter;
+        public event EventHandler SlotMouseLeave;
+
 
         public string Move1_Name { get; private set; } = "";
         public string Move2_Name { get; private set; } = "";
@@ -51,7 +55,7 @@ namespace PokemonPartySimulator
         public ucTeamSlot()
         {
             InitializeComponent();
-            // 重點：把內部所有東西的 Click 都綁定到同一個觸發器
+            // 把內部所有東西的 Click 都綁定到同一個觸發器
             this.Click += TriggerClick;
             pbPokemon.Click += TriggerClick;
             labName.Click += TriggerClick;
@@ -60,13 +64,44 @@ namespace PokemonPartySimulator
             labMove2.Click += TriggerClick;
             labMove3.Click += TriggerClick;
             labMove4.Click += TriggerClick;
-            btnDelete.Click += btnRemove_Click;
 
+            // 把內部所有東西的 MouseEnter 都綁定到同一個觸發器
+            this.MouseEnter += TriggerMouseEnter;
+            pbPokemon.MouseEnter += TriggerMouseEnter;
+            labName.MouseEnter += TriggerMouseEnter;
+            labPlus.MouseEnter += TriggerMouseEnter;
+            labMove1.MouseEnter += TriggerMouseEnter;
+            labMove2.MouseEnter += TriggerMouseEnter;
+            labMove3.MouseEnter += TriggerMouseEnter;
+            labMove4.MouseEnter += TriggerMouseEnter;
+
+            // 把內部所有東西的 MouseLeave 都綁定到同一個觸發器
+            this.MouseLeave += TriggerMouseLeave;
+            pbPokemon.MouseLeave += TriggerMouseLeave;
+            labName.MouseLeave += TriggerMouseLeave;
+            labPlus.MouseLeave += TriggerMouseLeave;
+            labMove1.MouseLeave += TriggerMouseLeave;
+            labMove2.MouseLeave += TriggerMouseLeave;
+            labMove3.MouseLeave += TriggerMouseLeave;
+            labMove4.MouseLeave += TriggerMouseLeave;
+
+            btnDelete.Click += btnRemove_Click;
             // 初始化為空狀態
             ClearSlot();
         }
-
         // 統一觸發事件
+        private void TriggerMouseEnter(object sender, EventArgs e)
+        {
+            SlotMouseEnter?.Invoke(this, e);
+        }
+        private void TriggerMouseLeave(object sender, EventArgs e)
+        {
+            SlotMouseLeave?.Invoke(this, e);
+        }
+
+
+
+        
         private void TriggerClick(object sender, EventArgs e)
         {
             SlotClicked?.Invoke(this, e);
@@ -99,8 +134,8 @@ namespace PokemonPartySimulator
             pbPokemon.Image = img;
             labName.Text = name;
 
-            // 改背景色讓它看起來像有選中
-            this.BackColor =Color.LightSteelBlue;
+            //// 改背景色讓它看起來像有選中
+            //this.BackColor =Color.LightSteelBlue;
         }
 
         // 清空這格

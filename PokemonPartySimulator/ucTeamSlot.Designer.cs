@@ -64,12 +64,11 @@
             // 
             // labPlus
             // 
-            this.labPlus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.labPlus.AutoSize = true;
+            this.labPlus.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labPlus.Font = new System.Drawing.Font("微軟正黑體", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.labPlus.Location = new System.Drawing.Point(80, 6);
+            this.labPlus.Location = new System.Drawing.Point(0, 104);
             this.labPlus.Name = "labPlus";
-            this.labPlus.Size = new System.Drawing.Size(121, 120);
+            this.labPlus.Size = new System.Drawing.Size(262, 46);
             this.labPlus.TabIndex = 2;
             this.labPlus.Text = "+";
             this.labPlus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;

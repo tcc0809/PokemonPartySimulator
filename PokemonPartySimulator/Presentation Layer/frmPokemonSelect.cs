@@ -1,16 +1,9 @@
 ﻿using PokemonPartySimulator.Business_Logic_Layer;
 using PokemonPartySimulator.Model_Layer;
-using PokemonPartySimulator.PokemonPartySimulatorDataSetTableAdapters;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 //使用 TableAdapter。
@@ -198,21 +191,21 @@ namespace PokemonPartySimulator.Presentation_Layer
                 pokemonIDTextBox.Text = currentRow.PokemonID.ToString();
                 name_ENTextBox.Text = currentRow.Name_EN;
                 name_CHTextBox.Text = currentRow.Name_CH;
-
+                labLargeName.Text = currentRow.Name_CH;
                 // 翻譯屬性
                 txtType1.Text = TypeHelper.ToChinese(currentRow.Type1);
                 txtType2.Text = TypeHelper.ToChinese(currentRow.Type2);
 
                 // 4. 血條動畫初始化 (邏輯不變，只是資料來源改成 currentRow)
                 _statBars = new List<StatBar>
-        {
-            new StatBar { Control = pnlTotal, TargetValue = currentRow.Base_Total, Name = "Base_Total", ValueControl = labTotal },
-            new StatBar { Control = pnlHP, TargetValue = currentRow.HP, Name = "HP", ValueControl = labHP },
-            new StatBar { Control = pnlATK, TargetValue = currentRow.Attack, Name = "Attack", ValueControl = labATK },
-            new StatBar { Control = pnlDEF, TargetValue = currentRow.Defense, Name = "Defense", ValueControl = labDEF },
-            new StatBar { Control = pnlSP, TargetValue = currentRow.Special, Name = "Special", ValueControl = labSP },
-            new StatBar { Control = pnlSpeed, TargetValue = currentRow.Speed, Name = "Speed", ValueControl = labSpeed },
-        };
+                    {
+                        new StatBar { Control = pnlTotal, TargetValue = currentRow.Base_Total, Name = "Base_Total", ValueControl = labTotal },
+                        new StatBar { Control = pnlHP, TargetValue = currentRow.HP, Name = "HP", ValueControl = labHP },
+                        new StatBar { Control = pnlATK, TargetValue = currentRow.Attack, Name = "Attack", ValueControl = labATK },
+                        new StatBar { Control = pnlDEF, TargetValue = currentRow.Defense, Name = "Defense", ValueControl = labDEF },
+                        new StatBar { Control = pnlSP, TargetValue = currentRow.Special, Name = "Special", ValueControl = labSP },
+                        new StatBar { Control = pnlSpeed, TargetValue = currentRow.Speed, Name = "Speed", ValueControl = labSpeed },
+                    };
                 // ⭐ 2. 【關鍵新增】將所有血條視覺上「歸零」
                 // 如果不加這段，切換寶可夢時，血條可能會從上一次的長度繼續跑，或者卡住
                 foreach (var bar in _statBars)

@@ -78,8 +78,6 @@
             this.labClose.TabIndex = 3;
             this.labClose.Text = "結束程式";
             this.labClose.Click += new System.EventHandler(this.labClose_Click);
-            this.labClose.MouseEnter += new System.EventHandler(this.labClose_MouseEnter);
-            this.labClose.MouseLeave += new System.EventHandler(this.labClose_MouseLeave);
             // 
             // labNew
             // 
@@ -91,8 +89,6 @@
             this.labNew.TabIndex = 0;
             this.labNew.Text = "新增隊伍";
             this.labNew.Click += new System.EventHandler(this.labNew_Click);
-            this.labNew.MouseEnter += new System.EventHandler(this.labNew_MouseEnter);
-            this.labNew.MouseLeave += new System.EventHandler(this.labNew_MouseLeave);
             // 
             // labRight
             // 
@@ -104,8 +100,6 @@
             this.labRight.TabIndex = 2;
             this.labRight.Text = "權利聲明";
             this.labRight.Click += new System.EventHandler(this.labRight_Click);
-            this.labRight.MouseEnter += new System.EventHandler(this.labRight_MouseEnter);
-            this.labRight.MouseLeave += new System.EventHandler(this.labRight_MouseLeave);
             // 
             // labLoad
             // 
@@ -117,8 +111,6 @@
             this.labLoad.TabIndex = 1;
             this.labLoad.Text = "讀取隊伍";
             this.labLoad.Click += new System.EventHandler(this.labLoad_Click);
-            this.labLoad.MouseEnter += new System.EventHandler(this.labLoad_MouseEnter);
-            this.labLoad.MouseLeave += new System.EventHandler(this.labLoad_MouseLeave);
             // 
             // frmMain
             // 
