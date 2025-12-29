@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Security.AccessControl;
 using System.Text;
 using System.Windows.Forms;
 
@@ -27,6 +28,7 @@ namespace PokemonPartySimulator.Presentation_Layer
             this.Load += (s, e) => {
                 splitContainer1.SplitterDistance = splitContainer1.Width / 2;
             };
+
         }
 
         // 編輯模式的多載建構子
@@ -241,7 +243,7 @@ namespace PokemonPartySimulator.Presentation_Layer
             ucTeamSlot enterSlot = sender as ucTeamSlot;
             Font oldFont = enterSlot.Font;
             enterSlot.Font = new Font(oldFont, oldFont.Style | FontStyle.Bold);
-            enterSlot.BackColor = Color.LightCyan;
+            enterSlot.BackColor = Color.MistyRose;
 
         }
         private void OnMouseLeave(object sender, EventArgs e)
@@ -250,7 +252,7 @@ namespace PokemonPartySimulator.Presentation_Layer
             Font oldFont = leaveSlot.Font;
             leaveSlot.Font = new Font(oldFont, oldFont.Style & ~FontStyle.Bold);
 
-            leaveSlot.BackColor = Color.AliceBlue;
+            leaveSlot.BackColor = Color.White;
 
         }
 
@@ -295,7 +297,7 @@ namespace PokemonPartySimulator.Presentation_Layer
                 {
                     _selectForm = new frmPokemonSelect();
                 }
-
+                _selectForm.ResetSearch();
                 if (_selectForm.ShowDialog() == DialogResult.OK)
                 {
                     // 選怪成功後更新 UI 

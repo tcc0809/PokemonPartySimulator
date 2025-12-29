@@ -71,6 +71,8 @@
             this.pokemonDataTableAdapter = new PokemonPartySimulator.PokemonPartySimulatorDataSetTableAdapters.PokemonDataTableAdapter();
             this.btnJoinTeam = new System.Windows.Forms.Button();
             this.labLargeName = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             pokemonIDLabel = new System.Windows.Forms.Label();
             name_ENLabel = new System.Windows.Forms.Label();
             name_CHLabel = new System.Windows.Forms.Label();
@@ -85,115 +87,134 @@
             ((System.ComponentModel.ISupportInitialize)(this.pokemonDataBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pokemonPartySimulatorDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLarge)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pokemonIDLabel
             // 
             pokemonIDLabel.AutoSize = true;
-            pokemonIDLabel.Location = new System.Drawing.Point(841, 101);
+            pokemonIDLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(21)))), ((int)(((byte)(21)))));
+            pokemonIDLabel.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold);
+            pokemonIDLabel.Location = new System.Drawing.Point(841, 142);
             pokemonIDLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             pokemonIDLabel.Name = "pokemonIDLabel";
-            pokemonIDLabel.Size = new System.Drawing.Size(79, 16);
+            pokemonIDLabel.Size = new System.Drawing.Size(86, 17);
             pokemonIDLabel.TabIndex = 1;
             pokemonIDLabel.Text = "Pokemon ID:";
             // 
             // name_ENLabel
             // 
             name_ENLabel.AutoSize = true;
-            name_ENLabel.Location = new System.Drawing.Point(841, 175);
+            name_ENLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(21)))), ((int)(((byte)(21)))));
+            name_ENLabel.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold);
+            name_ENLabel.Location = new System.Drawing.Point(841, 210);
             name_ENLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             name_ENLabel.Name = "name_ENLabel";
-            name_ENLabel.Size = new System.Drawing.Size(65, 16);
+            name_ENLabel.Size = new System.Drawing.Size(69, 17);
             name_ENLabel.TabIndex = 3;
             name_ENLabel.Text = "Name EN:";
             // 
             // name_CHLabel
             // 
             name_CHLabel.AutoSize = true;
-            name_CHLabel.Location = new System.Drawing.Point(841, 138);
+            name_CHLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(21)))), ((int)(((byte)(21)))));
+            name_CHLabel.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            name_CHLabel.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold);
+            name_CHLabel.Location = new System.Drawing.Point(845, 176);
             name_CHLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             name_CHLabel.Name = "name_CHLabel";
-            name_CHLabel.Size = new System.Drawing.Size(65, 16);
+            name_CHLabel.Size = new System.Drawing.Size(70, 17);
             name_CHLabel.TabIndex = 5;
             name_CHLabel.Text = "Name CH:";
             // 
             // type1Label
             // 
             type1Label.AutoSize = true;
-            type1Label.Location = new System.Drawing.Point(841, 212);
+            type1Label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(21)))), ((int)(((byte)(21)))));
+            type1Label.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold);
+            type1Label.Location = new System.Drawing.Point(841, 244);
             type1Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             type1Label.Name = "type1Label";
-            type1Label.Size = new System.Drawing.Size(45, 16);
+            type1Label.Size = new System.Drawing.Size(49, 17);
             type1Label.TabIndex = 7;
             type1Label.Text = "Type1:";
             // 
             // type2Label
             // 
             type2Label.AutoSize = true;
-            type2Label.Location = new System.Drawing.Point(841, 249);
+            type2Label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(21)))), ((int)(((byte)(21)))));
+            type2Label.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            type2Label.Location = new System.Drawing.Point(841, 278);
             type2Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             type2Label.Name = "type2Label";
-            type2Label.Size = new System.Drawing.Size(45, 16);
+            type2Label.Size = new System.Drawing.Size(49, 17);
             type2Label.TabIndex = 9;
             type2Label.Text = "Type2:";
             // 
             // base_TotalLabel
             // 
             base_TotalLabel.AutoSize = true;
-            base_TotalLabel.Location = new System.Drawing.Point(841, 288);
+            base_TotalLabel.BackColor = System.Drawing.Color.White;
+            base_TotalLabel.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            base_TotalLabel.Location = new System.Drawing.Point(841, 338);
             base_TotalLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             base_TotalLabel.Name = "base_TotalLabel";
-            base_TotalLabel.Size = new System.Drawing.Size(68, 16);
+            base_TotalLabel.Size = new System.Drawing.Size(74, 17);
             base_TotalLabel.TabIndex = 11;
             base_TotalLabel.Text = "Base Total:";
             // 
             // hPLabel
             // 
             hPLabel.AutoSize = true;
-            hPLabel.Location = new System.Drawing.Point(841, 325);
+            hPLabel.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            hPLabel.Location = new System.Drawing.Point(841, 375);
             hPLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             hPLabel.Name = "hPLabel";
-            hPLabel.Size = new System.Drawing.Size(26, 16);
+            hPLabel.Size = new System.Drawing.Size(29, 17);
             hPLabel.TabIndex = 13;
             hPLabel.Text = "HP:";
             // 
             // attackLabel
             // 
             attackLabel.AutoSize = true;
-            attackLabel.Location = new System.Drawing.Point(841, 362);
+            attackLabel.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            attackLabel.Location = new System.Drawing.Point(841, 412);
             attackLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             attackLabel.Name = "attackLabel";
-            attackLabel.Size = new System.Drawing.Size(45, 16);
+            attackLabel.Size = new System.Drawing.Size(51, 17);
             attackLabel.TabIndex = 15;
             attackLabel.Text = "Attack:";
             // 
             // defenseLabel
             // 
             defenseLabel.AutoSize = true;
-            defenseLabel.Location = new System.Drawing.Point(841, 400);
+            defenseLabel.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            defenseLabel.Location = new System.Drawing.Point(841, 450);
             defenseLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             defenseLabel.Name = "defenseLabel";
-            defenseLabel.Size = new System.Drawing.Size(56, 16);
+            defenseLabel.Size = new System.Drawing.Size(61, 17);
             defenseLabel.TabIndex = 17;
             defenseLabel.Text = "Defense:";
             // 
             // specialLabel
             // 
             specialLabel.AutoSize = true;
-            specialLabel.Location = new System.Drawing.Point(841, 437);
+            specialLabel.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            specialLabel.Location = new System.Drawing.Point(841, 487);
             specialLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             specialLabel.Name = "specialLabel";
-            specialLabel.Size = new System.Drawing.Size(51, 16);
+            specialLabel.Size = new System.Drawing.Size(56, 17);
             specialLabel.TabIndex = 19;
             specialLabel.Text = "Special:";
             // 
             // speedLabel
             // 
             speedLabel.AutoSize = true;
-            speedLabel.Location = new System.Drawing.Point(841, 474);
+            speedLabel.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            speedLabel.Location = new System.Drawing.Point(841, 524);
             speedLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             speedLabel.Name = "speedLabel";
-            speedLabel.Size = new System.Drawing.Size(47, 16);
+            speedLabel.Size = new System.Drawing.Size(49, 17);
             speedLabel.TabIndex = 21;
             speedLabel.Text = "Speed:";
             // 
@@ -201,7 +222,7 @@
             // 
             this.pokemonIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pokemonDataBindingSource, "PokemonID", true));
             this.pokemonIDTextBox.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.pokemonIDTextBox.Location = new System.Drawing.Point(926, 97);
+            this.pokemonIDTextBox.Location = new System.Drawing.Point(926, 137);
             this.pokemonIDTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.pokemonIDTextBox.Name = "pokemonIDTextBox";
             this.pokemonIDTextBox.Size = new System.Drawing.Size(156, 27);
@@ -221,7 +242,7 @@
             // 
             this.name_ENTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pokemonDataBindingSource, "Name_EN", true));
             this.name_ENTextBox.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.name_ENTextBox.Location = new System.Drawing.Point(926, 171);
+            this.name_ENTextBox.Location = new System.Drawing.Point(926, 207);
             this.name_ENTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.name_ENTextBox.Name = "name_ENTextBox";
             this.name_ENTextBox.Size = new System.Drawing.Size(156, 27);
@@ -231,7 +252,7 @@
             // 
             this.name_CHTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pokemonDataBindingSource, "Name_CH", true));
             this.name_CHTextBox.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.name_CHTextBox.Location = new System.Drawing.Point(926, 134);
+            this.name_CHTextBox.Location = new System.Drawing.Point(926, 172);
             this.name_CHTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.name_CHTextBox.Name = "name_CHTextBox";
             this.name_CHTextBox.Size = new System.Drawing.Size(156, 27);
@@ -241,7 +262,7 @@
             // 
             this.txtType1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pokemonDataBindingSource, "Type1", true));
             this.txtType1.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtType1.Location = new System.Drawing.Point(926, 208);
+            this.txtType1.Location = new System.Drawing.Point(926, 242);
             this.txtType1.Margin = new System.Windows.Forms.Padding(4);
             this.txtType1.Name = "txtType1";
             this.txtType1.Size = new System.Drawing.Size(156, 27);
@@ -251,7 +272,7 @@
             // 
             this.txtType2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pokemonDataBindingSource, "Type2", true));
             this.txtType2.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtType2.Location = new System.Drawing.Point(926, 245);
+            this.txtType2.Location = new System.Drawing.Point(926, 277);
             this.txtType2.Margin = new System.Windows.Forms.Padding(4);
             this.txtType2.Name = "txtType2";
             this.txtType2.Size = new System.Drawing.Size(156, 27);
@@ -261,7 +282,7 @@
             // 
             this.cbType.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.cbType.FormattingEnabled = true;
-            this.cbType.Location = new System.Drawing.Point(229, 112);
+            this.cbType.Location = new System.Drawing.Point(229, 95);
             this.cbType.Margin = new System.Windows.Forms.Padding(4);
             this.cbType.Name = "cbType";
             this.cbType.Size = new System.Drawing.Size(170, 32);
@@ -271,8 +292,9 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("微軟正黑體", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label1.Location = new System.Drawing.Point(68, 104);
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(21)))), ((int)(((byte)(21)))));
+            this.label1.Font = new System.Drawing.Font("微軟正黑體", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label1.Location = new System.Drawing.Point(68, 87);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(145, 40);
@@ -282,8 +304,9 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("微軟正黑體", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label3.Location = new System.Drawing.Point(68, 50);
+            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(21)))), ((int)(((byte)(21)))));
+            this.label3.Font = new System.Drawing.Font("微軟正黑體", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label3.Location = new System.Drawing.Point(68, 36);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(145, 40);
             this.label3.TabIndex = 28;
@@ -292,7 +315,7 @@
             // txtSearch
             // 
             this.txtSearch.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtSearch.Location = new System.Drawing.Point(229, 57);
+            this.txtSearch.Location = new System.Drawing.Point(229, 43);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(170, 33);
             this.txtSearch.TabIndex = 29;
@@ -301,16 +324,16 @@
             // LayoutPanelPS
             // 
             this.LayoutPanelPS.AutoScroll = true;
-            this.LayoutPanelPS.Location = new System.Drawing.Point(71, 151);
+            this.LayoutPanelPS.Location = new System.Drawing.Point(71, 137);
             this.LayoutPanelPS.Name = "LayoutPanelPS";
-            this.LayoutPanelPS.Size = new System.Drawing.Size(526, 345);
+            this.LayoutPanelPS.Size = new System.Drawing.Size(526, 425);
             this.LayoutPanelPS.TabIndex = 30;
             // 
             // pictureBoxLarge
             // 
-            this.pictureBoxLarge.Location = new System.Drawing.Point(604, 151);
+            this.pictureBoxLarge.Location = new System.Drawing.Point(604, 137);
             this.pictureBoxLarge.Name = "pictureBoxLarge";
-            this.pictureBoxLarge.Size = new System.Drawing.Size(212, 345);
+            this.pictureBoxLarge.Size = new System.Drawing.Size(212, 359);
             this.pictureBoxLarge.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxLarge.TabIndex = 31;
             this.pictureBoxLarge.TabStop = false;
@@ -479,7 +502,7 @@
             // pnlTotal
             // 
             this.pnlTotal.BackColor = System.Drawing.Color.Maroon;
-            this.pnlTotal.Location = new System.Drawing.Point(926, 284);
+            this.pnlTotal.Location = new System.Drawing.Point(926, 334);
             this.pnlTotal.Name = "pnlTotal";
             this.pnlTotal.Size = new System.Drawing.Size(1, 23);
             this.pnlTotal.TabIndex = 32;
@@ -487,7 +510,7 @@
             // pnlHP
             // 
             this.pnlHP.BackColor = System.Drawing.Color.Maroon;
-            this.pnlHP.Location = new System.Drawing.Point(926, 321);
+            this.pnlHP.Location = new System.Drawing.Point(926, 371);
             this.pnlHP.Name = "pnlHP";
             this.pnlHP.Size = new System.Drawing.Size(1, 23);
             this.pnlHP.TabIndex = 33;
@@ -495,7 +518,7 @@
             // pnlATK
             // 
             this.pnlATK.BackColor = System.Drawing.Color.Maroon;
-            this.pnlATK.Location = new System.Drawing.Point(926, 358);
+            this.pnlATK.Location = new System.Drawing.Point(926, 408);
             this.pnlATK.Name = "pnlATK";
             this.pnlATK.Size = new System.Drawing.Size(1, 23);
             this.pnlATK.TabIndex = 34;
@@ -503,7 +526,7 @@
             // pnlDEF
             // 
             this.pnlDEF.BackColor = System.Drawing.Color.Maroon;
-            this.pnlDEF.Location = new System.Drawing.Point(926, 396);
+            this.pnlDEF.Location = new System.Drawing.Point(926, 446);
             this.pnlDEF.Name = "pnlDEF";
             this.pnlDEF.Size = new System.Drawing.Size(1, 23);
             this.pnlDEF.TabIndex = 35;
@@ -511,7 +534,7 @@
             // pnlSP
             // 
             this.pnlSP.BackColor = System.Drawing.Color.Maroon;
-            this.pnlSP.Location = new System.Drawing.Point(926, 433);
+            this.pnlSP.Location = new System.Drawing.Point(926, 483);
             this.pnlSP.Name = "pnlSP";
             this.pnlSP.Size = new System.Drawing.Size(1, 23);
             this.pnlSP.TabIndex = 36;
@@ -519,7 +542,7 @@
             // pnlSpeed
             // 
             this.pnlSpeed.BackColor = System.Drawing.Color.Maroon;
-            this.pnlSpeed.Location = new System.Drawing.Point(926, 470);
+            this.pnlSpeed.Location = new System.Drawing.Point(926, 520);
             this.pnlSpeed.Name = "pnlSpeed";
             this.pnlSpeed.Size = new System.Drawing.Size(1, 23);
             this.pnlSpeed.TabIndex = 37;
@@ -529,7 +552,7 @@
             this.labTotal.AutoSize = true;
             this.labTotal.BackColor = System.Drawing.Color.Transparent;
             this.labTotal.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pokemonDataBindingSource, "Base_Total", true));
-            this.labTotal.Location = new System.Drawing.Point(929, 288);
+            this.labTotal.Location = new System.Drawing.Point(929, 338);
             this.labTotal.Name = "labTotal";
             this.labTotal.Size = new System.Drawing.Size(0, 16);
             this.labTotal.TabIndex = 38;
@@ -539,7 +562,7 @@
             this.labHP.AutoSize = true;
             this.labHP.BackColor = System.Drawing.Color.Transparent;
             this.labHP.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pokemonDataBindingSource, "HP", true));
-            this.labHP.Location = new System.Drawing.Point(929, 325);
+            this.labHP.Location = new System.Drawing.Point(929, 375);
             this.labHP.Name = "labHP";
             this.labHP.Size = new System.Drawing.Size(0, 16);
             this.labHP.TabIndex = 39;
@@ -549,7 +572,7 @@
             this.labATK.AutoSize = true;
             this.labATK.BackColor = System.Drawing.Color.Transparent;
             this.labATK.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pokemonDataBindingSource, "Attack", true));
-            this.labATK.Location = new System.Drawing.Point(929, 362);
+            this.labATK.Location = new System.Drawing.Point(929, 412);
             this.labATK.Name = "labATK";
             this.labATK.Size = new System.Drawing.Size(0, 16);
             this.labATK.TabIndex = 40;
@@ -559,7 +582,7 @@
             this.labDEF.AutoSize = true;
             this.labDEF.BackColor = System.Drawing.Color.Transparent;
             this.labDEF.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pokemonDataBindingSource, "Defense", true));
-            this.labDEF.Location = new System.Drawing.Point(929, 399);
+            this.labDEF.Location = new System.Drawing.Point(929, 449);
             this.labDEF.Name = "labDEF";
             this.labDEF.Size = new System.Drawing.Size(0, 16);
             this.labDEF.TabIndex = 41;
@@ -569,7 +592,7 @@
             this.labSP.AutoSize = true;
             this.labSP.BackColor = System.Drawing.Color.Transparent;
             this.labSP.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pokemonDataBindingSource, "Special", true));
-            this.labSP.Location = new System.Drawing.Point(929, 436);
+            this.labSP.Location = new System.Drawing.Point(929, 486);
             this.labSP.Name = "labSP";
             this.labSP.Size = new System.Drawing.Size(0, 16);
             this.labSP.TabIndex = 42;
@@ -579,7 +602,7 @@
             this.labSpeed.AutoSize = true;
             this.labSpeed.BackColor = System.Drawing.Color.Transparent;
             this.labSpeed.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pokemonDataBindingSource, "Speed", true));
-            this.labSpeed.Location = new System.Drawing.Point(929, 473);
+            this.labSpeed.Location = new System.Drawing.Point(929, 523);
             this.labSpeed.Name = "labSpeed";
             this.labSpeed.Size = new System.Drawing.Size(0, 16);
             this.labSpeed.TabIndex = 43;
@@ -602,22 +625,57 @@
             // labLargeName
             // 
             this.labLargeName.AutoSize = true;
+            this.labLargeName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(21)))), ((int)(((byte)(21)))));
             this.labLargeName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pokemonDataBindingSource, "Name_CH", true));
-            this.labLargeName.Font = new System.Drawing.Font("微軟正黑體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.labLargeName.Location = new System.Drawing.Point(620, 104);
+            this.labLargeName.Font = new System.Drawing.Font("微軟正黑體", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.labLargeName.Location = new System.Drawing.Point(598, 104);
             this.labLargeName.Name = "labLargeName";
-            this.labLargeName.Size = new System.Drawing.Size(178, 30);
+            this.labLargeName.Size = new System.Drawing.Size(0, 31);
             this.labLargeName.TabIndex = 45;
-            this.labLargeName.Text = "labLargeName";
             this.labLargeName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(21)))), ((int)(((byte)(21)))));
+            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Controls.Add(this.labLargeName);
+            this.panel1.Controls.Add(pokemonIDLabel);
+            this.panel1.Controls.Add(name_CHLabel);
+            this.panel1.Controls.Add(name_ENLabel);
+            this.panel1.Controls.Add(type2Label);
+            this.panel1.Controls.Add(type1Label);
+            this.panel1.Controls.Add(this.txtType2);
+            this.panel1.Controls.Add(this.txtType1);
+            this.panel1.Controls.Add(this.name_ENTextBox);
+            this.panel1.Controls.Add(this.pokemonIDTextBox);
+            this.panel1.Controls.Add(this.name_CHTextBox);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.cbType);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.txtSearch);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.panel1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1147, 320);
+            this.panel1.TabIndex = 46;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Black;
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel2.Location = new System.Drawing.Point(0, 315);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1147, 5);
+            this.panel2.TabIndex = 46;
             // 
             // frmPokemonSelect
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.ClientSize = new System.Drawing.Size(1147, 600);
-            this.Controls.Add(this.labLargeName);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(1147, 601);
             this.Controls.Add(this.btnJoinTeam);
             this.Controls.Add(this.labSpeed);
             this.Controls.Add(this.labSP);
@@ -633,34 +691,23 @@
             this.Controls.Add(this.pnlTotal);
             this.Controls.Add(this.pictureBoxLarge);
             this.Controls.Add(this.LayoutPanelPS);
-            this.Controls.Add(this.txtSearch);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.cbType);
-            this.Controls.Add(pokemonIDLabel);
-            this.Controls.Add(this.pokemonIDTextBox);
-            this.Controls.Add(name_ENLabel);
-            this.Controls.Add(this.name_ENTextBox);
-            this.Controls.Add(name_CHLabel);
-            this.Controls.Add(this.name_CHTextBox);
-            this.Controls.Add(type1Label);
-            this.Controls.Add(this.txtType1);
-            this.Controls.Add(type2Label);
-            this.Controls.Add(this.txtType2);
             this.Controls.Add(base_TotalLabel);
             this.Controls.Add(hPLabel);
             this.Controls.Add(attackLabel);
             this.Controls.Add(defenseLabel);
             this.Controls.Add(specialLabel);
             this.Controls.Add(speedLabel);
+            this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmPokemonSelect";
-            this.Text = "frmPokemonSelect";
+            this.Text = "寶可夢選擇";
             this.Load += new System.EventHandler(this.frmPokemonSelect_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pokemonDataBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pokemonPartySimulatorDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLarge)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -698,5 +745,7 @@
         private System.Windows.Forms.Label labSpeed;
         private System.Windows.Forms.Button btnJoinTeam;
         private System.Windows.Forms.Label labLargeName;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
     }
 }

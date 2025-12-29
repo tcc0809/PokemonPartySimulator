@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvTeams = new System.Windows.Forms.DataGridView();
             this.btnLoadTeam = new System.Windows.Forms.Button();
             this.btnDeleteTeam = new System.Windows.Forms.Button();
@@ -48,51 +49,68 @@
             // dgvTeams
             // 
             this.dgvTeams.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvTeams.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            this.dgvTeams.BackgroundColor = System.Drawing.Color.White;
+            this.dgvTeams.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvTeams.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgvTeams.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(21)))), ((int)(((byte)(21)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvTeams.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgvTeams.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dgvTeams.GridColor = System.Drawing.SystemColors.ControlLight;
+            this.dgvTeams.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dgvTeams.Location = new System.Drawing.Point(0, 0);
-            this.dgvTeams.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvTeams.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.dgvTeams.Name = "dgvTeams";
             this.dgvTeams.ReadOnly = true;
             this.dgvTeams.RowHeadersWidth = 72;
             this.dgvTeams.RowTemplate.Height = 30;
             this.dgvTeams.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvTeams.Size = new System.Drawing.Size(1062, 541);
+            this.dgvTeams.Size = new System.Drawing.Size(1184, 636);
             this.dgvTeams.TabIndex = 0;
             // 
             // btnLoadTeam
             // 
+            this.btnLoadTeam.BackColor = System.Drawing.Color.White;
             this.btnLoadTeam.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnLoadTeam.FlatAppearance.BorderSize = 0;
+            this.btnLoadTeam.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLoadTeam.Font = new System.Drawing.Font("微軟正黑體", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.btnLoadTeam.Location = new System.Drawing.Point(0, 0);
-            this.btnLoadTeam.Margin = new System.Windows.Forms.Padding(4);
+            this.btnLoadTeam.Margin = new System.Windows.Forms.Padding(0);
             this.btnLoadTeam.Name = "btnLoadTeam";
-            this.btnLoadTeam.Size = new System.Drawing.Size(529, 98);
+            this.btnLoadTeam.Size = new System.Drawing.Size(590, 115);
             this.btnLoadTeam.TabIndex = 1;
             this.btnLoadTeam.Text = "載入隊伍";
-            this.btnLoadTeam.UseVisualStyleBackColor = true;
+            this.btnLoadTeam.UseVisualStyleBackColor = false;
             this.btnLoadTeam.Click += new System.EventHandler(this.btnLoadTeam_Click);
             // 
             // btnDeleteTeam
             // 
+            this.btnDeleteTeam.BackColor = System.Drawing.Color.White;
             this.btnDeleteTeam.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnDeleteTeam.FlatAppearance.BorderSize = 0;
+            this.btnDeleteTeam.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeleteTeam.Font = new System.Drawing.Font("微軟正黑體", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.btnDeleteTeam.Location = new System.Drawing.Point(0, 0);
-            this.btnDeleteTeam.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDeleteTeam.Margin = new System.Windows.Forms.Padding(0);
             this.btnDeleteTeam.Name = "btnDeleteTeam";
-            this.btnDeleteTeam.Size = new System.Drawing.Size(529, 98);
+            this.btnDeleteTeam.Size = new System.Drawing.Size(589, 115);
             this.btnDeleteTeam.TabIndex = 2;
             this.btnDeleteTeam.Text = "刪除隊伍";
-            this.btnDeleteTeam.UseVisualStyleBackColor = true;
+            this.btnDeleteTeam.UseVisualStyleBackColor = false;
             this.btnDeleteTeam.Click += new System.EventHandler(this.btnDeleteTeam_Click);
             // 
             // splitContainer1
             // 
+            this.splitContainer1.BackColor = System.Drawing.Color.White;
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 540);
+            this.splitContainer1.Location = new System.Drawing.Point(0, 496);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(0);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -102,8 +120,9 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.btnLoadTeam);
-            this.splitContainer1.Size = new System.Drawing.Size(1062, 98);
-            this.splitContainer1.SplitterDistance = 529;
+            this.splitContainer1.Size = new System.Drawing.Size(1184, 115);
+            this.splitContainer1.SplitterDistance = 589;
+            this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 3;
             // 
             // pokemonPartySimulatorDataSet
@@ -122,16 +141,16 @@
             // 
             // frmTeamLoad
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1062, 638);
+            this.ClientSize = new System.Drawing.Size(1184, 611);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.dgvTeams);
-            this.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.Name = "frmTeamLoad";
-            this.Text = "frmTeamLoad";
+            this.Text = "讀取隊伍";
             this.Load += new System.EventHandler(this.frmTeamLoad_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTeams)).EndInit();
             this.splitContainer1.Panel1.ResumeLayout(false);

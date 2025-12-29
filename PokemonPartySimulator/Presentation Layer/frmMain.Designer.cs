@@ -31,11 +31,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.labLoad = new System.Windows.Forms.Label();
-            this.labRight = new System.Windows.Forms.Label();
-            this.labNew = new System.Windows.Forms.Label();
-            this.labClose = new System.Windows.Forms.Label();
             this.pbBall = new System.Windows.Forms.PictureBox();
+            this.labClose = new System.Windows.Forms.Label();
+            this.labNew = new System.Windows.Forms.Label();
+            this.labRight = new System.Windows.Forms.Label();
+            this.labLoad = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbBall)).BeginInit();
             this.SuspendLayout();
@@ -69,42 +69,18 @@
             this.panel1.Size = new System.Drawing.Size(1224, 69);
             this.panel1.TabIndex = 4;
             // 
-            // labLoad
+            // pbBall
             // 
-            this.labLoad.AutoSize = true;
-            this.labLoad.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.labLoad.Location = new System.Drawing.Point(427, 21);
-            this.labLoad.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labLoad.Name = "labLoad";
-            this.labLoad.Size = new System.Drawing.Size(96, 27);
-            this.labLoad.TabIndex = 1;
-            this.labLoad.Text = "讀取隊伍";
-            this.labLoad.Click += new System.EventHandler(this.labLoad_Click);
-            // 
-            // labRight
-            // 
-            this.labRight.AutoSize = true;
-            this.labRight.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.labRight.Location = new System.Drawing.Point(733, 21);
-            this.labRight.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labRight.Name = "labRight";
-            this.labRight.Size = new System.Drawing.Size(96, 27);
-            this.labRight.TabIndex = 2;
-            this.labRight.Text = "權利聲明";
-            this.labRight.Click += new System.EventHandler(this.labRight_Click);
-            // 
-            // labNew
-            // 
-            this.labNew.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labNew.AutoSize = true;
-            this.labNew.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.labNew.Location = new System.Drawing.Point(121, 21);
-            this.labNew.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labNew.Name = "labNew";
-            this.labNew.Size = new System.Drawing.Size(96, 27);
-            this.labNew.TabIndex = 0;
-            this.labNew.Text = "新增隊伍";
-            this.labNew.Click += new System.EventHandler(this.labNew_Click);
+            this.pbBall.BackColor = System.Drawing.Color.Transparent;
+            this.pbBall.Image = ((System.Drawing.Image)(resources.GetObject("pbBall.Image")));
+            this.pbBall.Location = new System.Drawing.Point(245, 7);
+            this.pbBall.Margin = new System.Windows.Forms.Padding(4);
+            this.pbBall.Name = "pbBall";
+            this.pbBall.Size = new System.Drawing.Size(52, 67);
+            this.pbBall.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbBall.TabIndex = 4;
+            this.pbBall.TabStop = false;
+            this.pbBall.Visible = false;
             // 
             // labClose
             // 
@@ -121,18 +97,42 @@
             this.labClose.Text = "結束程式";
             this.labClose.Click += new System.EventHandler(this.labClose_Click);
             // 
-            // pbBall
+            // labNew
             // 
-            this.pbBall.BackColor = System.Drawing.Color.Transparent;
-            this.pbBall.Image = ((System.Drawing.Image)(resources.GetObject("pbBall.Image")));
-            this.pbBall.Location = new System.Drawing.Point(245, 7);
-            this.pbBall.Margin = new System.Windows.Forms.Padding(4);
-            this.pbBall.Name = "pbBall";
-            this.pbBall.Size = new System.Drawing.Size(52, 67);
-            this.pbBall.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbBall.TabIndex = 4;
-            this.pbBall.TabStop = false;
-            this.pbBall.Visible = false;
+            this.labNew.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.labNew.AutoSize = true;
+            this.labNew.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.labNew.Location = new System.Drawing.Point(121, 21);
+            this.labNew.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labNew.Name = "labNew";
+            this.labNew.Size = new System.Drawing.Size(96, 27);
+            this.labNew.TabIndex = 0;
+            this.labNew.Text = "新增隊伍";
+            this.labNew.Click += new System.EventHandler(this.labNew_Click);
+            // 
+            // labRight
+            // 
+            this.labRight.AutoSize = true;
+            this.labRight.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.labRight.Location = new System.Drawing.Point(733, 21);
+            this.labRight.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labRight.Name = "labRight";
+            this.labRight.Size = new System.Drawing.Size(96, 27);
+            this.labRight.TabIndex = 2;
+            this.labRight.Text = "權利聲明";
+            this.labRight.Click += new System.EventHandler(this.labRight_Click);
+            // 
+            // labLoad
+            // 
+            this.labLoad.AutoSize = true;
+            this.labLoad.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.labLoad.Location = new System.Drawing.Point(427, 21);
+            this.labLoad.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labLoad.Name = "labLoad";
+            this.labLoad.Size = new System.Drawing.Size(96, 27);
+            this.labLoad.TabIndex = 1;
+            this.labLoad.Text = "讀取隊伍";
+            this.labLoad.Click += new System.EventHandler(this.labLoad_Click);
             // 
             // frmMain
             // 

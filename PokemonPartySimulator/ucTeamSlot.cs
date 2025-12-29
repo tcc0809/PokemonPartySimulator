@@ -133,9 +133,6 @@ namespace PokemonPartySimulator
 
             pbPokemon.Image = img;
             labName.Text = name;
-
-            //// 改背景色讓它看起來像有選中
-            //this.BackColor =Color.LightSteelBlue;
         }
 
         // 清空這格
@@ -152,7 +149,7 @@ namespace PokemonPartySimulator
             pbPokemon.Image = null;
             labName.Text = "";
 
-            this.BackColor = Color.AliceBlue ; // 回復空位顏色
+            this.BackColor = Color.White ; // 回復空位顏色
 
             this.Move1_Name = this.Move2_Name = this.Move3_Name = this.Move4_Name = "";
             labMove1.Text = labMove2.Text = labMove3.Text = labMove4.Text = "";

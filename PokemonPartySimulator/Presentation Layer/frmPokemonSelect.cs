@@ -29,6 +29,7 @@ namespace PokemonPartySimulator.Presentation_Layer
  
             cbType.DataSource = TypeHelper.GetAllChineseTypes();
             cbType.SelectedIndex = 0; // 預設選 "全部屬性"
+            txtSearch.Text = "";
             ApplyFilter();
         }
         private void ApplyFilter()
@@ -188,6 +189,12 @@ namespace PokemonPartySimulator.Presentation_Layer
                 name_ENTextBox.Text = currentRow.Name_EN;
                 name_CHTextBox.Text = currentRow.Name_CH;
                 labLargeName.Text = currentRow.Name_CH;
+                labHP.Text = currentRow.HP.ToString();
+                labATK.Text = currentRow.Attack.ToString();
+                labDEF.Text = currentRow.Defense.ToString();
+                labSP.Text = currentRow.Special.ToString();
+                labSpeed.Text = currentRow.Speed.ToString();
+
                 // 翻譯屬性
                 txtType1.Text = TypeHelper.ToChinese(currentRow.Type1);
                 txtType2.Text = TypeHelper.ToChinese(currentRow.Type2);
@@ -337,13 +344,39 @@ namespace PokemonPartySimulator.Presentation_Layer
 
         private void btnJoinTeam_Click(object sender, EventArgs e)
         {
-            // 2. 將 UI 上的 ID 存入屬性 (需轉型)
-            // 假設你的 label 顯示的是純數字，或你有變數存著目前選中的 ID
-            this.SelectedPokemonID = int.Parse(pokemonIDTextBox.Text);
-            this.SelectedPokemonName = name_CHTextBox.Text;
-            // 3. 設定視窗結果為 OK，並關閉視窗
-            this.DialogResult = DialogResult.OK;
-            this.Close();
+            // 嘗試將文字轉成數字，成功會回傳 true 且把值塞入變數 id
+            if (int.TryParse(pokemonIDTextBox.Text, out int id))
+            {
+                this.SelectedPokemonID = id;
+                this.SelectedPokemonName = name_CHTextBox.Text;
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+            else
+            {
+                // 轉型失敗（例如文字框是空的），顯示警告
+                MessageBox.Show("請先選擇寶可夢！");
+            }
+        }
+
+        // frmPokemonSelect.cs 內部
+
+        internal void ResetSearch()
+        {
+            // 1. 清空搜尋文字框
+            txtSearch.Text = "";
+
+            // 2. 將屬性下拉選單設回第一個 ("全部屬性")
+            if (cbType.Items.Count > 0)
+            {
+                cbType.SelectedIndex = 0;
+            }
+
+            // 3. 關鍵：手動呼叫一次過濾邏輯，讓列表恢復顯示全部 151 隻
+            ApplyFilter();
+
+            // 4. 每次打開都回到最上面，重置捲軸
+            LayoutPanelPS.AutoScrollPosition = new Point(0, 0);
         }
     }
 }
