@@ -100,7 +100,7 @@
             // name_ENLabel
             // 
             name_ENLabel.AutoSize = true;
-            name_ENLabel.Location = new System.Drawing.Point(841, 138);
+            name_ENLabel.Location = new System.Drawing.Point(841, 175);
             name_ENLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             name_ENLabel.Name = "name_ENLabel";
             name_ENLabel.Size = new System.Drawing.Size(65, 16);
@@ -110,7 +110,7 @@
             // name_CHLabel
             // 
             name_CHLabel.AutoSize = true;
-            name_CHLabel.Location = new System.Drawing.Point(841, 176);
+            name_CHLabel.Location = new System.Drawing.Point(841, 138);
             name_CHLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             name_CHLabel.Name = "name_CHLabel";
             name_CHLabel.Size = new System.Drawing.Size(65, 16);
@@ -120,7 +120,7 @@
             // type1Label
             // 
             type1Label.AutoSize = true;
-            type1Label.Location = new System.Drawing.Point(841, 213);
+            type1Label.Location = new System.Drawing.Point(841, 212);
             type1Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             type1Label.Name = "type1Label";
             type1Label.Size = new System.Drawing.Size(45, 16);
@@ -130,7 +130,7 @@
             // type2Label
             // 
             type2Label.AutoSize = true;
-            type2Label.Location = new System.Drawing.Point(841, 250);
+            type2Label.Location = new System.Drawing.Point(841, 249);
             type2Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             type2Label.Name = "type2Label";
             type2Label.Size = new System.Drawing.Size(45, 16);
@@ -221,7 +221,7 @@
             // 
             this.name_ENTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pokemonDataBindingSource, "Name_EN", true));
             this.name_ENTextBox.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.name_ENTextBox.Location = new System.Drawing.Point(926, 134);
+            this.name_ENTextBox.Location = new System.Drawing.Point(926, 171);
             this.name_ENTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.name_ENTextBox.Name = "name_ENTextBox";
             this.name_ENTextBox.Size = new System.Drawing.Size(156, 27);
@@ -231,7 +231,7 @@
             // 
             this.name_CHTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pokemonDataBindingSource, "Name_CH", true));
             this.name_CHTextBox.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.name_CHTextBox.Location = new System.Drawing.Point(926, 172);
+            this.name_CHTextBox.Location = new System.Drawing.Point(926, 134);
             this.name_CHTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.name_CHTextBox.Name = "name_CHTextBox";
             this.name_CHTextBox.Size = new System.Drawing.Size(156, 27);
@@ -241,7 +241,7 @@
             // 
             this.txtType1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pokemonDataBindingSource, "Type1", true));
             this.txtType1.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtType1.Location = new System.Drawing.Point(926, 209);
+            this.txtType1.Location = new System.Drawing.Point(926, 208);
             this.txtType1.Margin = new System.Windows.Forms.Padding(4);
             this.txtType1.Name = "txtType1";
             this.txtType1.Size = new System.Drawing.Size(156, 27);
@@ -251,7 +251,7 @@
             // 
             this.txtType2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pokemonDataBindingSource, "Type2", true));
             this.txtType2.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtType2.Location = new System.Drawing.Point(926, 246);
+            this.txtType2.Location = new System.Drawing.Point(926, 245);
             this.txtType2.Margin = new System.Windows.Forms.Padding(4);
             this.txtType2.Name = "txtType2";
             this.txtType2.Size = new System.Drawing.Size(156, 27);
@@ -615,6 +615,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.ClientSize = new System.Drawing.Size(1147, 600);
             this.Controls.Add(this.labLargeName);
             this.Controls.Add(this.btnJoinTeam);

@@ -1,5 +1,4 @@
-﻿using PokemonPartySimulator.Classes;
-using PokemonPartySimulator.Data_Access_Layer;
+﻿using PokemonPartySimulator.Data_Access_Layer;
 using PokemonPartySimulator.Model_Layer;
 using System;
 using System.Collections.Generic;
@@ -10,7 +9,7 @@ namespace PokemonPartySimulator.Business_Logic_Layer
 {
     internal static class TeamManager
     {
-        // 1. 查寶可夢名字 (UI 顯示需要，但 TeamMember 表沒存)
+        // 查寶可夢名字 (UI 顯示需要，但 TeamMember 表沒存)
         internal static string GetPokemonNameByID(int id)
         {
             string sql = "SELECT Name_CH FROM PokemonData WHERE PokemonID = @ID";
@@ -18,7 +17,7 @@ namespace PokemonPartySimulator.Business_Logic_Layer
             return dt.Rows.Count > 0 ? dt.Rows[0]["Name_CH"].ToString() : "Unknown";
         }
 
-        // 2. 查招式名字
+        // 查招式名字
         internal static string GetMoveNameByID(int id)
         {
             if (id == 0) return "(無)";
@@ -27,7 +26,15 @@ namespace PokemonPartySimulator.Business_Logic_Layer
             return dt.Rows.Count > 0 ? dt.Rows[0]["Name_CH"].ToString() : "Error";
         }
 
-        // 3. 一次抓出整個隊伍的「物件化」資料
+        // 查隊伍名
+        internal static string GetTeamNameByID(int id)
+        {
+            string sql = "SELECT TeamName FROM Team WHERE TeamID = @ID";
+            DataTable dt = DBHelper.GetDataTable(sql, new SqlParameter("@ID", id));
+            return dt.Rows.Count > 0 ? dt.Rows[0]["TeamName"].ToString() : "Unknown";
+        }
+
+        // 一次抓出整個隊伍的「物件化」資料
         internal static List<TeamMember> GetTeamMembers(int teamID)
         {
             List<TeamMember> list = new List<TeamMember>();
@@ -125,6 +132,22 @@ namespace PokemonPartySimulator.Business_Logic_Layer
                     throw new Exception("資料庫交易失敗，已回溯資料。詳細原因：" + ex.Message);
                 }
             }
+        }
+
+        // 1. 回傳型別改為 Pokemon 物件
+        internal static Pokemon GetPokemonByID(int id)
+        {
+            string sql = "SELECT * FROM PokemonData WHERE PokemonID = @ID";
+            DataTable dt = DBHelper.GetDataTable(sql, new SqlParameter("@ID", id));
+
+            if (dt.Rows.Count > 0)
+            {
+                // 2. 使用你的翻譯官 (SqlMapper) 將這一列資料轉成完整的物件
+                // 這樣你拿到的物件裡面就有：名字、Type1、Type2、種族值等所有資訊
+                return SqlMapper.ToPokemon(dt.Rows[0]);
+            }
+
+            return null; // 找不到就回傳 null
         }
     }
 }

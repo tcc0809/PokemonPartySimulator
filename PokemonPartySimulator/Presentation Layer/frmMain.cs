@@ -11,7 +11,7 @@ namespace PokemonPartySimulator
         public frmMain()
         {
             InitializeComponent();
-            panel1.BackColor = Color.FromArgb(65, 204, 212, 230);
+            //panel1.BackColor = Color.FromArgb(65, 204, 212, 230);
             // 1. 把所有需要「移入特效」的 Label 整理成一個陣列
             Label[] menuLabels = { labNew, labLoad, labRight, labClose }; // 假設你有這三個
 
@@ -28,7 +28,7 @@ namespace PokemonPartySimulator
         private void labSelect(object sender, EventArgs e)
         {
             Label targetLabel = (Label) sender;
-            pbBall.Location = new Point(targetLabel.Location.X + 90, targetLabel.Location.Y-13);
+            pbBall.Location = new Point(targetLabel.Location.X + 90, targetLabel.Location.Y-20);
             pbBall.Visible = true;
 
             Font oldFont = targetLabel.Font;
@@ -73,12 +73,14 @@ namespace PokemonPartySimulator
         {
             MessageBox.Show("    免責聲明：\n\n    本專案為個人練習與學術用途（C# WinForm 與 SQL 資料庫實作），非商業專案。\n    所有寶可夢相關的圖片、名稱、數據等素材，\n    其版權皆屬於 Nintendo、Creatures Inc. 以及 GAME FREAK Inc. 所有。\n    若有侵權疑慮請聯繫開發者，將立即下架相關內容。" +
                 "\n\n    Disclaimer:\n    This project is for educational and personal portfolio purposes only.\n    All Pokémon images, names, and related media are intellectual property of \n    Nintendo, Creatures Inc., and GAME FREAK Inc.\n    No copyright infringement is intended." +
-                "\n\n    Trash icon created by Freepik Flaticon");
+                "\n\n    Trash icon and Export icon created by Freepik Flaticon");
         }
 
         private void labClose_Click(object sender, EventArgs e)
         {
             Close();
         }
+
+
     }
 }

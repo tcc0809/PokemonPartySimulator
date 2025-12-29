@@ -1,4 +1,4 @@
-﻿using PokemonPartySimulator.Classes;
+﻿using PokemonPartySimulator.Model_Layer;
 using System;
 using System.Collections.Generic;
 using System.Data;

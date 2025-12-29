@@ -31,18 +31,21 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTeamEditor));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.imageListPM = new System.Windows.Forms.ImageList(this.components);
-            this.txtTeamName = new System.Windows.Forms.TextBox();
-            this.labTeamName = new System.Windows.Forms.Label();
-            this.btnSaveTeam = new System.Windows.Forms.Button();
             this.slot5 = new PokemonPartySimulator.ucTeamSlot();
             this.slot4 = new PokemonPartySimulator.ucTeamSlot();
             this.slot3 = new PokemonPartySimulator.ucTeamSlot();
             this.slot2 = new PokemonPartySimulator.ucTeamSlot();
             this.slot1 = new PokemonPartySimulator.ucTeamSlot();
             this.slot0 = new PokemonPartySimulator.ucTeamSlot();
+            this.imageListPM = new System.Windows.Forms.ImageList(this.components);
+            this.txtTeamName = new System.Windows.Forms.TextBox();
+            this.labTeamName = new System.Windows.Forms.Label();
+            this.btnSaveTeam = new System.Windows.Forms.Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.btnClearTeam = new System.Windows.Forms.Button();
+            this.btnExport = new System.Windows.Forms.Button();
+            this.labTypeAnalysis = new System.Windows.Forms.Label();
+            this.labWeaknessWarning = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -60,10 +63,82 @@
             this.panel1.Controls.Add(this.slot1);
             this.panel1.Controls.Add(this.slot0);
             this.panel1.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.panel1.Location = new System.Drawing.Point(226, 127);
+            this.panel1.Location = new System.Drawing.Point(228, 68);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(526, 450);
+            this.panel1.Size = new System.Drawing.Size(526, 452);
             this.panel1.TabIndex = 0;
+            // 
+            // slot5
+            // 
+            this.slot5.BackColor = System.Drawing.Color.AliceBlue;
+            this.slot5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.slot5.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.slot5.Location = new System.Drawing.Point(262, 300);
+            this.slot5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.slot5.Name = "slot5";
+            this.slot5.Size = new System.Drawing.Size(262, 150);
+            this.slot5.SlotIndex = 5;
+            this.slot5.TabIndex = 5;
+            // 
+            // slot4
+            // 
+            this.slot4.BackColor = System.Drawing.Color.AliceBlue;
+            this.slot4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.slot4.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.slot4.Location = new System.Drawing.Point(0, 300);
+            this.slot4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.slot4.Name = "slot4";
+            this.slot4.Size = new System.Drawing.Size(262, 150);
+            this.slot4.SlotIndex = 4;
+            this.slot4.TabIndex = 4;
+            // 
+            // slot3
+            // 
+            this.slot3.BackColor = System.Drawing.Color.AliceBlue;
+            this.slot3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.slot3.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.slot3.Location = new System.Drawing.Point(262, 150);
+            this.slot3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.slot3.Name = "slot3";
+            this.slot3.Size = new System.Drawing.Size(262, 150);
+            this.slot3.SlotIndex = 3;
+            this.slot3.TabIndex = 3;
+            // 
+            // slot2
+            // 
+            this.slot2.BackColor = System.Drawing.Color.AliceBlue;
+            this.slot2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.slot2.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.slot2.Location = new System.Drawing.Point(0, 150);
+            this.slot2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.slot2.Name = "slot2";
+            this.slot2.Size = new System.Drawing.Size(262, 150);
+            this.slot2.SlotIndex = 2;
+            this.slot2.TabIndex = 2;
+            // 
+            // slot1
+            // 
+            this.slot1.BackColor = System.Drawing.Color.AliceBlue;
+            this.slot1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.slot1.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.slot1.Location = new System.Drawing.Point(262, 0);
+            this.slot1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.slot1.Name = "slot1";
+            this.slot1.Size = new System.Drawing.Size(262, 150);
+            this.slot1.SlotIndex = 1;
+            this.slot1.TabIndex = 1;
+            // 
+            // slot0
+            // 
+            this.slot0.BackColor = System.Drawing.Color.AliceBlue;
+            this.slot0.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.slot0.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.slot0.Location = new System.Drawing.Point(0, 0);
+            this.slot0.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.slot0.Name = "slot0";
+            this.slot0.Size = new System.Drawing.Size(262, 150);
+            this.slot0.SlotIndex = 0;
+            this.slot0.TabIndex = 0;
             // 
             // imageListPM
             // 
@@ -225,7 +300,7 @@
             // 
             this.txtTeamName.BackColor = System.Drawing.Color.AliceBlue;
             this.txtTeamName.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtTeamName.Location = new System.Drawing.Point(17, 51);
+            this.txtTeamName.Location = new System.Drawing.Point(29, 69);
             this.txtTeamName.Name = "txtTeamName";
             this.txtTeamName.Size = new System.Drawing.Size(175, 35);
             this.txtTeamName.TabIndex = 1;
@@ -234,7 +309,7 @@
             // 
             this.labTeamName.AutoSize = true;
             this.labTeamName.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.labTeamName.Location = new System.Drawing.Point(12, 9);
+            this.labTeamName.Location = new System.Drawing.Point(24, 23);
             this.labTeamName.Name = "labTeamName";
             this.labTeamName.Size = new System.Drawing.Size(101, 26);
             this.labTeamName.TabIndex = 2;
@@ -242,91 +317,23 @@
             // 
             // btnSaveTeam
             // 
+            this.btnSaveTeam.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnSaveTeam.BackColor = System.Drawing.Color.AliceBlue;
-            this.btnSaveTeam.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSaveTeam.FlatAppearance.BorderSize = 0;
+            this.btnSaveTeam.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSaveTeam.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btnSaveTeam.Location = new System.Drawing.Point(0, 0);
+            this.btnSaveTeam.Location = new System.Drawing.Point(-20, -1);
+            this.btnSaveTeam.Margin = new System.Windows.Forms.Padding(0);
             this.btnSaveTeam.Name = "btnSaveTeam";
-            this.btnSaveTeam.Size = new System.Drawing.Size(469, 77);
+            this.btnSaveTeam.Size = new System.Drawing.Size(488, 77);
             this.btnSaveTeam.TabIndex = 3;
             this.btnSaveTeam.Text = "儲存隊伍";
             this.btnSaveTeam.UseVisualStyleBackColor = false;
             this.btnSaveTeam.Click += new System.EventHandler(this.btnSaveTeam_Click);
             // 
-            // slot5
-            // 
-            this.slot5.BackColor = System.Drawing.Color.AliceBlue;
-            this.slot5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.slot5.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.slot5.Location = new System.Drawing.Point(262, 300);
-            this.slot5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.slot5.Name = "slot5";
-            this.slot5.Size = new System.Drawing.Size(262, 150);
-            this.slot5.SlotIndex = 5;
-            this.slot5.TabIndex = 5;
-            // 
-            // slot4
-            // 
-            this.slot4.BackColor = System.Drawing.Color.AliceBlue;
-            this.slot4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.slot4.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.slot4.Location = new System.Drawing.Point(0, 300);
-            this.slot4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.slot4.Name = "slot4";
-            this.slot4.Size = new System.Drawing.Size(262, 150);
-            this.slot4.SlotIndex = 4;
-            this.slot4.TabIndex = 4;
-            // 
-            // slot3
-            // 
-            this.slot3.BackColor = System.Drawing.Color.AliceBlue;
-            this.slot3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.slot3.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.slot3.Location = new System.Drawing.Point(262, 150);
-            this.slot3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.slot3.Name = "slot3";
-            this.slot3.Size = new System.Drawing.Size(262, 150);
-            this.slot3.SlotIndex = 3;
-            this.slot3.TabIndex = 3;
-            // 
-            // slot2
-            // 
-            this.slot2.BackColor = System.Drawing.Color.AliceBlue;
-            this.slot2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.slot2.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.slot2.Location = new System.Drawing.Point(0, 150);
-            this.slot2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.slot2.Name = "slot2";
-            this.slot2.Size = new System.Drawing.Size(262, 150);
-            this.slot2.SlotIndex = 2;
-            this.slot2.TabIndex = 2;
-            // 
-            // slot1
-            // 
-            this.slot1.BackColor = System.Drawing.Color.AliceBlue;
-            this.slot1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.slot1.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.slot1.Location = new System.Drawing.Point(262, 0);
-            this.slot1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.slot1.Name = "slot1";
-            this.slot1.Size = new System.Drawing.Size(262, 150);
-            this.slot1.SlotIndex = 1;
-            this.slot1.TabIndex = 1;
-            // 
-            // slot0
-            // 
-            this.slot0.BackColor = System.Drawing.Color.AliceBlue;
-            this.slot0.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.slot0.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.slot0.Location = new System.Drawing.Point(0, 0);
-            this.slot0.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.slot0.Name = "slot0";
-            this.slot0.Size = new System.Drawing.Size(262, 150);
-            this.slot0.SlotIndex = 0;
-            this.slot0.TabIndex = 0;
-            // 
             // splitContainer1
             // 
+            this.splitContainer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.splitContainer1.Location = new System.Drawing.Point(0, 604);
             this.splitContainer1.Margin = new System.Windows.Forms.Padding(1);
@@ -339,29 +346,68 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.btnSaveTeam);
-            this.splitContainer1.Size = new System.Drawing.Size(959, 77);
-            this.splitContainer1.SplitterDistance = 486;
+            this.splitContainer1.Size = new System.Drawing.Size(960, 77);
+            this.splitContainer1.SplitterDistance = 488;
+            this.splitContainer1.SplitterWidth = 1;
             this.splitContainer1.TabIndex = 4;
             // 
             // btnClearTeam
             // 
+            this.btnClearTeam.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnClearTeam.BackColor = System.Drawing.Color.AliceBlue;
-            this.btnClearTeam.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnClearTeam.FlatAppearance.BorderSize = 0;
+            this.btnClearTeam.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClearTeam.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btnClearTeam.Location = new System.Drawing.Point(0, 0);
+            this.btnClearTeam.Location = new System.Drawing.Point(0, -1);
+            this.btnClearTeam.Margin = new System.Windows.Forms.Padding(0);
             this.btnClearTeam.Name = "btnClearTeam";
-            this.btnClearTeam.Size = new System.Drawing.Size(486, 77);
+            this.btnClearTeam.Size = new System.Drawing.Size(488, 77);
             this.btnClearTeam.TabIndex = 5;
             this.btnClearTeam.Text = "清空隊伍";
             this.btnClearTeam.UseVisualStyleBackColor = false;
             this.btnClearTeam.Click += new System.EventHandler(this.btnClearTeam_Click);
+            // 
+            // btnExport
+            // 
+            this.btnExport.BackColor = System.Drawing.Color.Transparent;
+            this.btnExport.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnExport.BackgroundImage")));
+            this.btnExport.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnExport.Location = new System.Drawing.Point(849, 23);
+            this.btnExport.Name = "btnExport";
+            this.btnExport.Size = new System.Drawing.Size(62, 63);
+            this.btnExport.TabIndex = 5;
+            this.btnExport.UseVisualStyleBackColor = false;
+            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
+            // 
+            // labTypeAnalysis
+            // 
+            this.labTypeAnalysis.AutoSize = true;
+            this.labTypeAnalysis.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.labTypeAnalysis.Location = new System.Drawing.Point(225, 534);
+            this.labTypeAnalysis.Name = "labTypeAnalysis";
+            this.labTypeAnalysis.Size = new System.Drawing.Size(127, 24);
+            this.labTypeAnalysis.TabIndex = 6;
+            this.labTypeAnalysis.Text = "TypeAnalysis";
+            // 
+            // labWeaknessWarning
+            // 
+            this.labWeaknessWarning.AutoSize = true;
+            this.labWeaknessWarning.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.labWeaknessWarning.Location = new System.Drawing.Point(225, 568);
+            this.labWeaknessWarning.Name = "labWeaknessWarning";
+            this.labWeaknessWarning.Size = new System.Drawing.Size(178, 24);
+            this.labWeaknessWarning.TabIndex = 7;
+            this.labWeaknessWarning.Text = "WeaknessWarning";
             // 
             // frmTeamEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(959, 681);
+            this.ClientSize = new System.Drawing.Size(960, 681);
+            this.Controls.Add(this.labWeaknessWarning);
+            this.Controls.Add(this.labTypeAnalysis);
+            this.Controls.Add(this.btnExport);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.labTeamName);
             this.Controls.Add(this.txtTeamName);
@@ -393,5 +439,8 @@
         private System.Windows.Forms.Button btnSaveTeam;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.Button btnClearTeam;
+        private System.Windows.Forms.Button btnExport;
+        private System.Windows.Forms.Label labTypeAnalysis;
+        private System.Windows.Forms.Label labWeaknessWarning;
     }
 }

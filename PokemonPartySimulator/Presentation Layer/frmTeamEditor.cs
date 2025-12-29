@@ -1,9 +1,11 @@
 ﻿using PokemonPartySimulator.Business_Logic_Layer;
-using PokemonPartySimulator.Classes;
+using PokemonPartySimulator.Model_Layer;
 using System;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
+using System.Text;
 using System.Windows.Forms;
 
 namespace PokemonPartySimulator.Presentation_Layer
@@ -21,7 +23,7 @@ namespace PokemonPartySimulator.Presentation_Layer
         {
             InitializeComponent();
             InitializeCommonLogic();
-            UpdatePlusVisibility();
+            RefreshUI();
             this.Load += (s, e) => {
                 splitContainer1.SplitterDistance = splitContainer1.Width / 2;
             };
@@ -51,29 +53,123 @@ namespace PokemonPartySimulator.Presentation_Layer
                 _slots[i].Cursor = Cursors.Hand;
             }
         }
-        private void UpdatePlusVisibility()
+        private void RefreshUI()
         {
-            // 先找出目前有幾隻怪
+            // 1. 取得目前隊伍中實際存在的成員數量
             int count = currentTeam.Count(m => m != null && m.PokemonID > 0);
+            // =>：Lambda 運算式 (Lambda Expression)
+            // 位置：在 Count() 方法的括號裡面。
+            // 作用：它是一個 「匿名函數(Anonymous Function)」。
+            // 白話解釋：它讀作 「Goes to(送到)」。
+            // 左邊的 m 是我們暫時給陣列裡「每一個成員」取的代號（就像數學 X）。
+            // 右邊的 m != null... 是我們對 X 下的指令（檢查條件）。
+            // 針對裡面的每一個 m，請執行計算 currentTeam 陣列裡，不等於 null 且 PokemonID 大於 0 的成員總共有幾個。
+            /*  等於用foreach這樣寫 
+                    int count = 0;
+                    foreach (var m in currentTeam) // 針對裡面的每一個 m
+                    {
+                        if (m != null && m.PokemonID > 0) // 如果滿足這個條件
+                        {
+                            count++; // 數字就加 1
+                        }
+                    }
+                    return count;
+             */
 
+
+
+            // -------------------------------------------------------
+            // A. 處理格子顯示邏輯 (原 UpdatePlusVisibility)
+            // -------------------------------------------------------
             for (int i = 0; i < _slots.Length; i++)
             {
                 if (i < count)
                 {
-                    // 已經有怪的格子：顯示圖片和名字 (這部分 SetPokemon 會處理)
+                    // 已經有怪的格子：確保顯示
                     _slots[i].Visible = true;
                 }
                 else if (i == count)
                 {
-                    // 「緊接著」怪物的下一個空位：顯示 + 號
+                    // 「下一個」空位：顯示 + 號
                     _slots[i].Visible = true;
-                    _slots[i].ClearSlot(); // 確保它是 + 號狀態
+                    _slots[i].ClearSlot(); // 確保它是乾淨的 + 號
                 }
                 else
                 {
-                    // 剩下的空位：直接隱藏，不讓使用者點
+                    // 剩下的空位：隱藏
                     _slots[i].Visible = false;
                 }
+            }
+
+            // -------------------------------------------------------
+            // B. 處理屬性分析邏輯 (整合分析功能)
+            // -------------------------------------------------------
+            // 1. 呼叫我們寫在 TypeHelper 的分析邏輯 (純計算)
+            var stats = TypeHelper.AnalyzeTeamTypes(currentTeam);
+
+            // 2. 更新 UI 上的分析 Label
+            if (stats.Count == 0)
+            {
+                labTypeAnalysis.Text = "隊伍屬性分佈：尚未加入成員";
+            }
+            else
+            {
+                // 串接成字串，例如 "火 x2, 水 x1"
+                string result = string.Join(", ", stats.Select(kv => $"{kv.Key} x{kv.Value}"));
+                labTypeAnalysis.Text = "隊伍屬性分佈：" + result;
+            }
+            // ... 前面處理格子顯示和屬性分佈的代碼 (你已經寫好的) ...
+
+            // -------------------------------------------------------
+            // C. 弱點警告邏輯 (新功能)
+            // -------------------------------------------------------
+            // 1. 取得目前成員數量
+            int activeCount = currentTeam.Count(m => m != null && m.PokemonID > 0);
+
+            if (activeCount == 0)
+            {
+                labWeaknessWarning.Text = "請加入成員以開始分析。";
+                Font oldFont = labWeaknessWarning.Font;
+                labWeaknessWarning.Font = new Font(oldFont, oldFont.Style & ~FontStyle.Bold);
+                labWeaknessWarning.ForeColor = Color.Black;
+                return;
+            }
+
+            // 2. 呼叫分析邏輯
+            var weaknessStats = TypeHelper.AnalyzeTeamWeaknesses(currentTeam);
+
+            // 3. ★★★ 動態計算警告門檻 ★★★
+            // 人數 1-2 -> 門檻 1
+            // 人數 3-4 -> 門檻 2
+            // 人數 5-6 -> 門檻 3
+            int threshold = (activeCount + 1) / 2;
+
+            var dangerTypes = weaknessStats
+                .Where(kv => kv.Value >= threshold)
+                .Select(kv => kv.Key)
+                .ToList();
+
+            // 4. 根據危險程度顯示不同顏色
+            if (dangerTypes.Any())
+            {
+                labWeaknessWarning.Text = $"🚨 警告：隊伍有 {activeCount} 隻成員，其中過半怕 {string.Join(", ", dangerTypes)} 系！";
+                labWeaknessWarning.ForeColor = Color.Red;
+                Font oldFont = labWeaknessWarning.Font;
+                labWeaknessWarning.Font = new Font(oldFont, oldFont.Style | FontStyle.Bold);
+            }
+            else if (activeCount > 0)
+            {
+                labWeaknessWarning.Text = "✅ 隊伍防禦：目前抗性分佈良好。";
+                labWeaknessWarning.ForeColor = Color.DarkGreen;
+                Font oldFont = labWeaknessWarning.Font;
+                labWeaknessWarning.Font = new Font(oldFont, oldFont.Style & ~FontStyle.Bold);
+            }
+            else
+            {
+                labWeaknessWarning.Text = "請加入成員以開始分析。";
+                labWeaknessWarning.ForeColor = Color.Black;
+                Font oldFont = labWeaknessWarning.Font;
+                labWeaknessWarning.Font = new Font(oldFont, oldFont.Style & ~FontStyle.Bold);
             }
         }
         private void ReorganizeTeam()
@@ -100,7 +196,7 @@ namespace PokemonPartySimulator.Presentation_Layer
                 // 4. 同步刷新 UI
                 UpdateSlotUI(i, member);
             }
-            UpdatePlusVisibility();
+            RefreshUI();
         }
 
         // 輔助方法：根據資料更新特定格子的 UI
@@ -134,9 +230,10 @@ namespace PokemonPartySimulator.Presentation_Layer
                 currentTeam[m.SlotIndex] = m;
                 UpdateSlotUI(m.SlotIndex, m); // 這個方法內部會去呼叫 TeamManager 查招式名
             }
-
-            // 4.刷新+號出現畫面
-            UpdatePlusVisibility();
+            
+            txtTeamName.Text = TeamManager.GetTeamNameByID(teamID);
+            // 4.刷新畫面
+            RefreshUI();
         }
 
         private void OnMouseEnter(object sender, EventArgs e)
@@ -166,8 +263,9 @@ namespace PokemonPartySimulator.Presentation_Layer
             if (clickedSlot == null) return;
 
             // 4. 執行清空邏輯 (刪除確認)
+            string clickedSlotName = TeamManager.GetPokemonNameByID(clickedSlot.PokemonID);
             DialogResult result = MessageBox.Show(
-                $"確定要從隊伍中移除 {clickedSlot.Name} 嗎？",
+                $"確定要從隊伍中移除 {clickedSlotName} 嗎？",
                 "確認移除",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question
@@ -227,7 +325,7 @@ namespace PokemonPartySimulator.Presentation_Layer
                         Move3_ID = 0,
                         Move4_ID = 0
                     };
-                    UpdatePlusVisibility();
+                    RefreshUI();
                 }
             }
             else // (clickedSlot.PokemonID != -1)
@@ -286,7 +384,7 @@ namespace PokemonPartySimulator.Presentation_Layer
             // 3. 其他 UI 重置
             txtTeamName.Text = "";
             _loadedTeamID = null; // 變回「新增模式」
-            UpdatePlusVisibility();
+            RefreshUI();
         }
         private void btnSaveTeam_Click(object sender, EventArgs e)
         {
@@ -318,6 +416,34 @@ namespace PokemonPartySimulator.Presentation_Layer
             {
                 // 3. 處理錯誤顯示 (UI 層的職責)
                 MessageBox.Show(ex.Message, "儲存失敗", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine($"=== {txtTeamName.Text} ===");
+            sb.AppendLine();
+
+            foreach (var m in currentTeam)
+            {
+                if (m == null || m.PokemonID <= 0) continue;
+
+                // 格式：名字
+                sb.AppendLine($"{m.Name}");
+
+                // 招式清單 (從 Manager 抓名字)
+                sb.AppendLine($"- {TeamManager.GetMoveNameByID(m.Move1_ID)}");
+                sb.AppendLine($"- {TeamManager.GetMoveNameByID(m.Move2_ID)}");
+                sb.AppendLine($"- {TeamManager.GetMoveNameByID(m.Move3_ID)}");
+                sb.AppendLine($"- {TeamManager.GetMoveNameByID(m.Move4_ID)}");
+                sb.AppendLine(); // 換行隔開下一隻
+            }
+            sb.AppendLine("--- 寶可夢組隊模擬器 (期中專題版) ---");
+            if (sb.Length > 0)
+            {
+                Clipboard.SetText(sb.ToString());
+                MessageBox.Show("隊伍已匯出至剪貼簿！可以貼到記事本查看。", "匯出成功");
             }
         }
 

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PokemonPartySimulator.Classes
+namespace PokemonPartySimulator.Model_Layer
 {
     internal class Move
     {

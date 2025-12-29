@@ -1,4 +1,5 @@
 ﻿using PokemonPartySimulator.Business_Logic_Layer;
+using PokemonPartySimulator.Data_Access_Layer;
 using PokemonPartySimulator.Model_Layer;
 using System;
 using System.Collections.Generic;
@@ -77,44 +78,39 @@ namespace PokemonPartySimulator.Presentation_Layer
             // 2. 跑迴圈 (跟原本一模一樣)
             foreach (DataRowView rowView in view)
             {
-                var pokemonRow = (PokemonPartySimulatorDataSet.PokemonDataRow)rowView.Row;
-                // A. 建立一個 Panel 來裝載 Name & Picture，讓它們是一組的
+                // 1. 在迴圈開頭只呼叫一次 Mapper，把資料轉成物件
+                Pokemon pm = SqlMapper.ToPokemon(rowView.Row);
+
                 Panel pnlItem = new Panel();
                 pnlItem.Size = new Size(160, 74);
-                pnlItem.BorderStyle = BorderStyle.FixedSingle; // 方便你看邊界
-                pnlItem.Tag = pokemonRow.PokemonID;
+                pnlItem.BorderStyle = BorderStyle.FixedSingle;
 
-                // B. 建立 PictureBox 顯示圖片
+                // ★ 建議方案：Tag 依然只存 ID，這樣你就不必去改 Item_Click 了
+                pnlItem.Tag = pm.PokemonID;
+
                 PictureBox pbx = new PictureBox();
                 pbx.Size = new Size(64, 64);
                 pbx.SizeMode = PictureBoxSizeMode.Zoom;
-                pbx.BackColor = Color.Transparent;
-                pbx.Tag = pokemonRow.PokemonID;
+                pbx.Tag = pm.PokemonID; // 存 ID
 
-                // 1. 取得圖片的 Key (名稱)
-                // 因為你在 ImageList 裡面把圖片名稱設定成了 "1.png", "2.png"
-                string imageKey = $"{pokemonRow.PokemonID}.png";
+                // 2. 修正 imageKey，直接拿物件的 ID
+                string imageKey = $"{pm.PokemonID}.png";
 
-                // 2. 判斷 ImageList 裡面是否有這個 Key
                 if (imageListPokemon.Images.ContainsKey(imageKey))
                 {
-                    // 從 ImageList 裡面取出圖片，並指派給 PictureBox
                     pbx.Image = imageListPokemon.Images[imageKey];
                 }
                 else
                 {
-                    // 如果找不到 (例如你只匯入 151 隻，但資料庫有 152 號)，可以顯示錯誤圖
                     pbx.Image = null;
                 }
-                pbx.Location = new Point(2, 2); // 放在左邊
+                pbx.Location = new Point(2, 2);
 
-                // C. 建立 Label 顯示名字
                 Label lblName = new Label();
-                lblName.Text = pokemonRow.Name_CH; // 顯示中文名
+                lblName.Text = pm.Name_CH; // 直接從物件拿名字
                 lblName.AutoSize = true;
-                lblName.Location = new Point(74, 10); // 放在圖片右邊
-                lblName.BackColor = Color.Transparent;
-                lblName.Tag = pokemonRow.PokemonID;
+                lblName.Location = new Point(74, 10);
+                lblName.Tag = pm.PokemonID; // 存 ID
                 lblName.Font = new Font(this.Font.FontFamily, 11);
 
                 if (firstClick == null)
@@ -230,7 +226,13 @@ namespace PokemonPartySimulator.Presentation_Layer
             name_CHTextBox.Text = "";
             txtType1.Text = "";
             txtType2.Text = "";
-
+            labTotal.Text = "";
+            labHP.Text = "";
+            labATK.Text = "";
+            labDEF.Text = "";
+            labSP.Text = "";
+            labSpeed.Text = "";
+            labLargeName.Text = "";
             // 2. 清空圖片
             pictureBoxLarge.Image = null;
 
