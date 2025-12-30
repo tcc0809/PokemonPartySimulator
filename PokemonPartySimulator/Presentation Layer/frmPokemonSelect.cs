@@ -185,6 +185,7 @@ namespace PokemonPartySimulator.Presentation_Layer
                 name_ENTextBox.Text = currentRow.Name_EN;
                 name_CHTextBox.Text = currentRow.Name_CH;
                 labLargeName.Text = currentRow.Name_CH;
+                labTotal.Text = currentRow.Base_Total.ToString();
                 labHP.Text = currentRow.HP.ToString();
                 labATK.Text = currentRow.Attack.ToString();
                 labDEF.Text = currentRow.Defense.ToString();
