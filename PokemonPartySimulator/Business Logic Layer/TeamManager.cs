@@ -51,7 +51,13 @@ namespace PokemonPartySimulator.Business_Logic_Layer
             }
             return list;
         }
-        // 修改後的 SaveTeam，接收：隊伍名稱, 舊 ID (如有), 成員清單
+
+        /// <summary>
+        /// 儲存隊伍功能 (涵蓋新增與修改)
+        /// 使用 Transaction 確保原子性：
+        /// 採用 Delete-then-Insert 策略，先清除舊成員再寫入新成員，以達成 Update 效果。
+        /// </summary>
+        // 物件化修改後的 SaveTeam，接收：隊伍名稱, 舊 ID (如有), 成員清單
         internal static int SaveTeam(string teamName, int? loadedTeamID, TeamMember[] members)
         {
             int teamIDToUse = -1;
@@ -109,6 +115,14 @@ namespace PokemonPartySimulator.Business_Logic_Layer
 
                         using (SqlCommand cmd = new SqlCommand(sqlInsertMember, conn, transaction))
                         {
+
+                            // --- 🚨 測試用髒數據注入 🚨 ---
+                            // 故意在儲存噴火龍時，讓它傳送一個不存在的 MoveID=9999
+                            //if (m.PokemonID == 6) // 將 member 改成 m
+                            //{
+                            //    m.Move1_ID = 9999; // 將 member 改成 m
+                            //}
+
                             cmd.Parameters.AddWithValue("@TeamID", teamIDToUse);
                             cmd.Parameters.AddWithValue("@SlotIndex", m.SlotIndex);
                             cmd.Parameters.AddWithValue("@PID", m.PokemonID);

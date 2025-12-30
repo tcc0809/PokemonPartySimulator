@@ -13,7 +13,7 @@ namespace PokemonPartySimulator
             InitializeComponent();
             //panel1.BackColor = Color.FromArgb(65, 204, 212, 230);
             // 1. 把所有需要「移入特效」的 Label 整理成一個陣列
-            Label[] menuLabels = { labNew, labLoad, labRight, labClose }; // 假設你有這三個
+            Label[] menuLabels = { labNew, labLoad, labRight, labClose }; 
 
             // 2. 用迴圈統一訂閱 (+=)
             foreach (Label lab in menuLabels)

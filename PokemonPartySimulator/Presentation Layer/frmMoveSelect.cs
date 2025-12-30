@@ -62,19 +62,17 @@ namespace PokemonPartySimulator.Presentation_Layer
             // 2. 準備參數 (把 id 塞給 @PID)
             SqlParameter param = new SqlParameter("@PID", id);
 
-            // 3. ★★★ 呼叫你剛寫好的 Helper ★★★
-            // 一行搞定！不用再寫 try-catch-using 了
             // 3. 使用 DBHelper 撈取資料
             // (這裡假設 DBHelper 已經正確設定並可使用)
             DataTable dt = DBHelper.GetDataTable(sql, param);
 
-            // ★★★ 4. 插入「空招式」選項 (這裡是你需要貼入的位置) ★★★
+            //  4. 插入「空招式」選項 
 
             // 4.1. 創建一個新行 (Row)
             DataRow emptyRow = dt.NewRow();
 
             // 4.2. 設定值 (MoveID=0 代表空，Name_CH="---" 或 "(無)")
-            // 確保這裡的欄位名稱 "MoveID" 和 "Name_CH" 與你 SQL SELECT 出來的欄位名稱完全一致
+            // 確保這裡的欄位名稱 "MoveID" 和 "Name_CH" 與 SQL SELECT 出來的欄位名稱完全一致
             emptyRow["MoveID"] = 0;
             emptyRow["Name_CH"] = "--- (無招式) ---";
 

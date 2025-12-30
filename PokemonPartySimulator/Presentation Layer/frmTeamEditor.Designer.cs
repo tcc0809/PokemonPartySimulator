@@ -66,7 +66,7 @@
             this.panel1.Controls.Add(this.slot1);
             this.panel1.Controls.Add(this.slot0);
             this.panel1.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.panel1.Location = new System.Drawing.Point(228, 68);
+            this.panel1.Location = new System.Drawing.Point(225, 68);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(526, 452);
             this.panel1.TabIndex = 0;
@@ -240,6 +240,7 @@
             // 
             this.labTeamName.AutoSize = true;
             this.labTeamName.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.labTeamName.ForeColor = System.Drawing.Color.White;
             this.labTeamName.Location = new System.Drawing.Point(24, 23);
             this.labTeamName.Name = "labTeamName";
             this.labTeamName.Size = new System.Drawing.Size(101, 26);
@@ -253,7 +254,7 @@
             this.btnSaveTeam.FlatAppearance.BorderSize = 0;
             this.btnSaveTeam.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSaveTeam.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btnSaveTeam.Location = new System.Drawing.Point(-19, -1);
+            this.btnSaveTeam.Location = new System.Drawing.Point(-18, -1);
             this.btnSaveTeam.Margin = new System.Windows.Forms.Padding(0);
             this.btnSaveTeam.Name = "btnSaveTeam";
             this.btnSaveTeam.Size = new System.Drawing.Size(488, 77);
@@ -300,7 +301,7 @@
             // 
             // btnExport
             // 
-            this.btnExport.BackColor = System.Drawing.Color.Transparent;
+            this.btnExport.BackColor = System.Drawing.Color.AliceBlue;
             this.btnExport.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnExport.BackgroundImage")));
             this.btnExport.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnExport.Location = new System.Drawing.Point(864, 23);
@@ -314,7 +315,7 @@
             // 
             this.labTypeAnalysis.AutoSize = true;
             this.labTypeAnalysis.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.labTypeAnalysis.Location = new System.Drawing.Point(225, 534);
+            this.labTypeAnalysis.Location = new System.Drawing.Point(221, 533);
             this.labTypeAnalysis.Name = "labTypeAnalysis";
             this.labTypeAnalysis.Size = new System.Drawing.Size(127, 24);
             this.labTypeAnalysis.TabIndex = 6;
@@ -324,7 +325,7 @@
             // 
             this.labWeaknessWarning.AutoSize = true;
             this.labWeaknessWarning.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.labWeaknessWarning.Location = new System.Drawing.Point(225, 568);
+            this.labWeaknessWarning.Location = new System.Drawing.Point(221, 567);
             this.labWeaknessWarning.Name = "labWeaknessWarning";
             this.labWeaknessWarning.Size = new System.Drawing.Size(178, 24);
             this.labWeaknessWarning.TabIndex = 7;
@@ -435,8 +436,9 @@
             this.Controls.Add(this.txtTeamName);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmTeamEditor";
-            this.Text = "frmTeamEditor";
+            this.Text = "隊伍編輯器";
             this.panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);

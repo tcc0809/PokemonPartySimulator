@@ -29,7 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTeamLoad));
             this.dgvTeams = new System.Windows.Forms.DataGridView();
             this.btnLoadTeam = new System.Windows.Forms.Button();
             this.btnDeleteTeam = new System.Windows.Forms.Button();
@@ -53,18 +54,18 @@
             this.dgvTeams.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvTeams.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgvTeams.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(21)))), ((int)(((byte)(21)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvTeams.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(21)))), ((int)(((byte)(21)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvTeams.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvTeams.Dock = System.Windows.Forms.DockStyle.Top;
             this.dgvTeams.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dgvTeams.Location = new System.Drawing.Point(0, 0);
-            this.dgvTeams.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.dgvTeams.Margin = new System.Windows.Forms.Padding(5);
             this.dgvTeams.Name = "dgvTeams";
             this.dgvTeams.ReadOnly = true;
             this.dgvTeams.RowHeadersWidth = 72;
@@ -75,7 +76,7 @@
             // 
             // btnLoadTeam
             // 
-            this.btnLoadTeam.BackColor = System.Drawing.Color.White;
+            this.btnLoadTeam.BackColor = System.Drawing.Color.AliceBlue;
             this.btnLoadTeam.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnLoadTeam.FlatAppearance.BorderSize = 0;
             this.btnLoadTeam.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -83,7 +84,7 @@
             this.btnLoadTeam.Location = new System.Drawing.Point(0, 0);
             this.btnLoadTeam.Margin = new System.Windows.Forms.Padding(0);
             this.btnLoadTeam.Name = "btnLoadTeam";
-            this.btnLoadTeam.Size = new System.Drawing.Size(590, 115);
+            this.btnLoadTeam.Size = new System.Drawing.Size(594, 115);
             this.btnLoadTeam.TabIndex = 1;
             this.btnLoadTeam.Text = "載入隊伍";
             this.btnLoadTeam.UseVisualStyleBackColor = false;
@@ -91,7 +92,7 @@
             // 
             // btnDeleteTeam
             // 
-            this.btnDeleteTeam.BackColor = System.Drawing.Color.White;
+            this.btnDeleteTeam.BackColor = System.Drawing.Color.AliceBlue;
             this.btnDeleteTeam.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnDeleteTeam.FlatAppearance.BorderSize = 0;
             this.btnDeleteTeam.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -122,7 +123,7 @@
             this.splitContainer1.Panel2.Controls.Add(this.btnLoadTeam);
             this.splitContainer1.Size = new System.Drawing.Size(1184, 115);
             this.splitContainer1.SplitterDistance = 589;
-            this.splitContainer1.SplitterWidth = 5;
+            this.splitContainer1.SplitterWidth = 1;
             this.splitContainer1.TabIndex = 3;
             // 
             // pokemonPartySimulatorDataSet
@@ -148,7 +149,8 @@
             this.Controls.Add(this.dgvTeams);
             this.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "frmTeamLoad";
             this.Text = "讀取隊伍";
             this.Load += new System.EventHandler(this.frmTeamLoad_Load);

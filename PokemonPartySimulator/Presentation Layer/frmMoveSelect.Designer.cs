@@ -28,19 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMoveSelect));
             this.cbMove3 = new System.Windows.Forms.ComboBox();
             this.cbMove4 = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.btnConfirm = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.cbMove1 = new System.Windows.Forms.ComboBox();
-            this.cbMove2 = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cbMove2 = new System.Windows.Forms.ComboBox();
+            this.cbMove1 = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnConfirm = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -50,6 +51,7 @@
             // 
             // cbMove3
             // 
+            this.cbMove3.BackColor = System.Drawing.Color.AliceBlue;
             this.cbMove3.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.cbMove3.FormattingEnabled = true;
             this.cbMove3.Location = new System.Drawing.Point(460, 309);
@@ -60,6 +62,7 @@
             // 
             // cbMove4
             // 
+            this.cbMove4.BackColor = System.Drawing.Color.AliceBlue;
             this.cbMove4.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.cbMove4.FormattingEnabled = true;
             this.cbMove4.Location = new System.Drawing.Point(460, 403);
@@ -114,78 +117,6 @@
             this.splitContainer1.SplitterWidth = 1;
             this.splitContainer1.TabIndex = 10;
             // 
-            // btnConfirm
-            // 
-            this.btnConfirm.BackColor = System.Drawing.Color.White;
-            this.btnConfirm.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnConfirm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConfirm.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btnConfirm.Location = new System.Drawing.Point(0, 0);
-            this.btnConfirm.Margin = new System.Windows.Forms.Padding(0);
-            this.btnConfirm.Name = "btnConfirm";
-            this.btnConfirm.Size = new System.Drawing.Size(434, 70);
-            this.btnConfirm.TabIndex = 4;
-            this.btnConfirm.Text = "確定";
-            this.btnConfirm.UseVisualStyleBackColor = false;
-            this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.BackColor = System.Drawing.Color.White;
-            this.btnCancel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancel.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btnCancel.Location = new System.Drawing.Point(434, 0);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(0);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(434, 70);
-            this.btnCancel.TabIndex = 5;
-            this.btnCancel.Text = "取消";
-            this.btnCancel.UseVisualStyleBackColor = false;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(21)))), ((int)(((byte)(21)))));
-            this.label2.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label2.Location = new System.Drawing.Point(223, 229);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(67, 26);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "招式2";
-            // 
-            // cbMove1
-            // 
-            this.cbMove1.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.cbMove1.FormattingEnabled = true;
-            this.cbMove1.Location = new System.Drawing.Point(460, 130);
-            this.cbMove1.Margin = new System.Windows.Forms.Padding(5);
-            this.cbMove1.Name = "cbMove1";
-            this.cbMove1.Size = new System.Drawing.Size(199, 32);
-            this.cbMove1.TabIndex = 0;
-            // 
-            // cbMove2
-            // 
-            this.cbMove2.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.cbMove2.FormattingEnabled = true;
-            this.cbMove2.Location = new System.Drawing.Point(460, 224);
-            this.cbMove2.Margin = new System.Windows.Forms.Padding(5);
-            this.cbMove2.Name = "cbMove2";
-            this.cbMove2.Size = new System.Drawing.Size(199, 32);
-            this.cbMove2.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(21)))), ((int)(((byte)(21)))));
-            this.label1.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label1.Location = new System.Drawing.Point(223, 136);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(67, 26);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "招式1";
-            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(21)))), ((int)(((byte)(21)))));
@@ -209,6 +140,82 @@
             this.panel2.Size = new System.Drawing.Size(868, 5);
             this.panel2.TabIndex = 8;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(21)))), ((int)(((byte)(21)))));
+            this.label1.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(223, 136);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(67, 26);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "招式1";
+            // 
+            // cbMove2
+            // 
+            this.cbMove2.BackColor = System.Drawing.Color.AliceBlue;
+            this.cbMove2.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.cbMove2.FormattingEnabled = true;
+            this.cbMove2.Location = new System.Drawing.Point(460, 224);
+            this.cbMove2.Margin = new System.Windows.Forms.Padding(5);
+            this.cbMove2.Name = "cbMove2";
+            this.cbMove2.Size = new System.Drawing.Size(199, 32);
+            this.cbMove2.TabIndex = 1;
+            // 
+            // cbMove1
+            // 
+            this.cbMove1.BackColor = System.Drawing.Color.AliceBlue;
+            this.cbMove1.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.cbMove1.FormattingEnabled = true;
+            this.cbMove1.Location = new System.Drawing.Point(460, 130);
+            this.cbMove1.Margin = new System.Windows.Forms.Padding(5);
+            this.cbMove1.Name = "cbMove1";
+            this.cbMove1.Size = new System.Drawing.Size(199, 32);
+            this.cbMove1.TabIndex = 0;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(21)))), ((int)(((byte)(21)))));
+            this.label2.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(223, 229);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(67, 26);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "招式2";
+            // 
+            // btnConfirm
+            // 
+            this.btnConfirm.BackColor = System.Drawing.Color.AliceBlue;
+            this.btnConfirm.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnConfirm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConfirm.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btnConfirm.Location = new System.Drawing.Point(0, 0);
+            this.btnConfirm.Margin = new System.Windows.Forms.Padding(0);
+            this.btnConfirm.Name = "btnConfirm";
+            this.btnConfirm.Size = new System.Drawing.Size(434, 70);
+            this.btnConfirm.TabIndex = 4;
+            this.btnConfirm.Text = "確定";
+            this.btnConfirm.UseVisualStyleBackColor = false;
+            this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.BackColor = System.Drawing.Color.AliceBlue;
+            this.btnCancel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btnCancel.Location = new System.Drawing.Point(434, 0);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(0);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(434, 70);
+            this.btnCancel.TabIndex = 5;
+            this.btnCancel.Text = "取消";
+            this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
             // frmMoveSelect
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
@@ -216,6 +223,7 @@
             this.ClientSize = new System.Drawing.Size(868, 611);
             this.Controls.Add(this.splitContainer1);
             this.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "frmMoveSelect";
             this.Text = "招式選擇";

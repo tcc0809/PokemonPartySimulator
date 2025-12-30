@@ -17,7 +17,7 @@ namespace PokemonPartySimulator.Presentation_Layer
         }
         private void frmTeamLoad_Load(object sender, EventArgs e)
         {
-            // TODO: 這行程式碼會將資料載入 'pokemonPartySimulatorDataSet.Team' 資料表。您可以視需要進行移動或移除。
+            // 將資料載入 'pokemonPartySimulatorDataSet.Team' 資料表。
             this.teamTableAdapter.Fill(this.pokemonPartySimulatorDataSet.Team);
             RefreshGrid();
         }
@@ -55,10 +55,10 @@ namespace PokemonPartySimulator.Presentation_Layer
             
             if (result == DialogResult.Yes)
             {
-                // 執行刪除 (這裡我們可以用剛才學到的交易機制，或是分兩次 ExecuteNonQuery)
+                // 執行刪除
                 DBHelper.DeleteTeam(teamID);
 
-                // 3. 重新整理 DataGridView 畫面
+                // 重新整理 DataGridView 畫面
                 RefreshGrid();
             }
         }

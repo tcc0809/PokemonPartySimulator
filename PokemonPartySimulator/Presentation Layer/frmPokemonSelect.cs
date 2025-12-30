@@ -76,17 +76,15 @@ namespace PokemonPartySimulator.Presentation_Layer
 
             Control firstClick = null; // 用來存第一個
 
-            // 2. 跑迴圈 (跟原本一模一樣)
+            // 2. 跑迴圈
             foreach (DataRowView rowView in view)
             {
-                // 1. 在迴圈開頭只呼叫一次 Mapper，把資料轉成物件
+                // (1) 在迴圈開頭只呼叫一次 Mapper，把資料轉成物件
                 Pokemon pm = SqlMapper.ToPokemon(rowView.Row);
 
                 Panel pnlItem = new Panel();
                 pnlItem.Size = new Size(160, 74);
                 pnlItem.BorderStyle = BorderStyle.FixedSingle;
-
-                // ★ 建議方案：Tag 依然只存 ID，這樣你就不必去改 Item_Click 了
                 pnlItem.Tag = pm.PokemonID;
 
                 PictureBox pbx = new PictureBox();
@@ -94,7 +92,7 @@ namespace PokemonPartySimulator.Presentation_Layer
                 pbx.SizeMode = PictureBoxSizeMode.Zoom;
                 pbx.Tag = pm.PokemonID; // 存 ID
 
-                // 2. 修正 imageKey，直接拿物件的 ID
+                // (2) 修正 imageKey，直接拿物件的 ID
                 string imageKey = $"{pm.PokemonID}.png";
 
                 if (imageListPokemon.Images.ContainsKey(imageKey))
@@ -123,11 +121,11 @@ namespace PokemonPartySimulator.Presentation_Layer
                 pbx.Click += Item_Click;
                 lblName.Click += Item_Click;
 
-                // E. 將 UI 元件加入 Panel
+                // 將 UI 元件加入 Panel
                 pnlItem.Controls.Add(pbx);
                 pnlItem.Controls.Add(lblName);
 
-                // F. 將 Panel 加入 LayoutPanel
+                // 將 Panel 加入 LayoutPanel
                 LayoutPanelPS.Controls.Add(pnlItem);
             }
 
@@ -153,14 +151,13 @@ namespace PokemonPartySimulator.Presentation_Layer
             //    它們的共同父類別是 Control，所以轉成 Control 即可
             Control clickedControl = (Control)sender;
 
-            // 2. 從 Tag 取出 ID (因為我們剛剛每個都塞了 Tag)
+            // 2. 從 Tag 取出 ID (因為每個都塞了 Tag)
             if (clickedControl.Tag != null)
             {
                 int pokemonIDSelect = (int)clickedControl.Tag;
 
-                // 3. 執行原本的邏輯
+                // 3. 執行Show邏輯
                 ShowPokemonDetails(pokemonIDSelect);
-                // (建議把你原本 BtnSelect_Click 裡面的邏輯抽成一個 ShowPokemonDetails 方法)
             }
         }
 
@@ -170,8 +167,7 @@ namespace PokemonPartySimulator.Presentation_Layer
             // 3. 取得圖片的 Key (名稱)
             string imageKey = $"{pokemonID}.png";
 
-            // 4. 從 ImageList 載入大圖到 PictureBox (假設 PictureBox 叫 pbxLarge)
-            // 確保 pbxLarge 的 Name 是正確的，且你的 ImageList 叫 imageListPokemon
+            // 4. 從 ImageList 載入大圖到 PictureBox 
 
             if (imageListPokemon.Images.ContainsKey(imageKey))
             {
@@ -183,8 +179,8 @@ namespace PokemonPartySimulator.Presentation_Layer
 
             if (currentRow != null)
             {
-                // 3. 手動填入 TextBox (因為我們繞過了 BindingSource)
-                // 這樣做最穩，完全不會受 Filter 影響
+                // 3. 手動填入 TextBox (因為繞過了 BindingSource)
+                // 這樣做不會受 Filter 影響
                 pokemonIDTextBox.Text = currentRow.PokemonID.ToString();
                 name_ENTextBox.Text = currentRow.Name_EN;
                 name_CHTextBox.Text = currentRow.Name_CH;
@@ -199,7 +195,7 @@ namespace PokemonPartySimulator.Presentation_Layer
                 txtType1.Text = TypeHelper.ToChinese(currentRow.Type1);
                 txtType2.Text = TypeHelper.ToChinese(currentRow.Type2);
 
-                // 4. 血條動畫初始化 (邏輯不變，只是資料來源改成 currentRow)
+                // 4. 血條動畫初始化 (物件化後邏輯不變，只是資料來源改成 currentRow)
                 _statBars = new List<StatBar>
                     {
                         new StatBar { Control = pnlTotal, TargetValue = currentRow.Base_Total, Name = "Base_Total", ValueControl = labTotal },
@@ -209,16 +205,13 @@ namespace PokemonPartySimulator.Presentation_Layer
                         new StatBar { Control = pnlSP, TargetValue = currentRow.Special, Name = "Special", ValueControl = labSP },
                         new StatBar { Control = pnlSpeed, TargetValue = currentRow.Speed, Name = "Speed", ValueControl = labSpeed },
                     };
-                // ⭐ 2. 【關鍵新增】將所有血條視覺上「歸零」
+                // ⭐ 將所有血條視覺上「歸零」
                 // 如果不加這段，切換寶可夢時，血條可能會從上一次的長度繼續跑，或者卡住
                 foreach (var bar in _statBars)
                 {
                     bar.Control.Size = new Size(0, bar.Control.Size.Height);
                 }
                 timerStatus.Start();
-                // 找到了！讓 BindingSource 停留在這個位置
-                // 所有的 TextBox 就會自動更新！
-                // (因為 Position = i 已經讓它停在這裡了，可以 break 退出)
             }
         
 
@@ -227,7 +220,6 @@ namespace PokemonPartySimulator.Presentation_Layer
         private void ClearDetails()
         {
             // 1. 清空所有文字框
-            // (請換成你實際的 TextBox 名稱)
             pokemonIDTextBox.Text = "";
             name_ENTextBox .Text = "";
             name_CHTextBox.Text = "";
@@ -258,9 +250,6 @@ namespace PokemonPartySimulator.Presentation_Layer
                     // 讓數字跟著歸零位置或隱藏
                     int newX = bar.Control.Location.X + 5;
                     bar.ValueControl.Location = new Point(newX, bar.ValueControl.Location.Y);
-
-                    // 如果是用 Label 顯示數字，也可以清空文字
-                    // ((Label)bar.ValueControl).Text = ""; 
                 }
             }
         }
@@ -372,7 +361,7 @@ namespace PokemonPartySimulator.Presentation_Layer
                 cbType.SelectedIndex = 0;
             }
 
-            // 3. 關鍵：手動呼叫一次過濾邏輯，讓列表恢復顯示全部 151 隻
+            // 3. 手動呼叫一次過濾邏輯，讓列表恢復顯示全部 151 隻
             ApplyFilter();
 
             // 4. 每次打開都回到最上面，重置捲軸

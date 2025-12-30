@@ -255,9 +255,6 @@ namespace PokemonPartySimulator.Presentation_Layer
             leaveSlot.BackColor = Color.White;
 
         }
-
-
-
         private void OnRemoveClicked(object sender, EventArgs e)
         {
             // 3. 轉型取得是被點的那個控制項 (跟 OnSlotClicked 邏輯一樣)
@@ -362,7 +359,6 @@ namespace PokemonPartySimulator.Presentation_Layer
                 }
             }
         }
-
         private void btnPK1_Click(object sender, EventArgs e)
         {
             frmPokemonSelect f = new frmPokemonSelect();
@@ -628,7 +624,7 @@ namespace PokemonPartySimulator.Presentation_Layer
 
                 // 執行 INSERT
                 DBHelper.ExecuteNonQuery(sqlInsertMember, parameters.ToArray());
-                // 如果你需要知道有沒有成功，可以檢查回傳值（> 0 代表成功）
+                // 如果需要知道有沒有成功，可以檢查回傳值（> 0 代表成功）
             }
 
             // 兩階段都成功，回傳新的 TeamID
