@@ -10,7 +10,7 @@ namespace PokemonPartySimulator.Business_Logic_Layer
 {
     internal static class TypeHelper
     {
-        // 核心字典：中文 (Key) -> 英文 (Value)
+        // 字典：中文 (Key) -> 英文 (Value)
         // 根據你資料庫的實際內容，英文部分要注意大小寫 (例如 "fire" 還是 "Fire")
         internal static readonly Dictionary<string, string> _typeMap = new Dictionary<string, string>
         {

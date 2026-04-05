@@ -153,7 +153,7 @@ namespace PokemonPartySimulator.Presentation_Layer
             }
 
             // 2. 綁定資料給 4 個 ComboBox
-            // ★★★ 關鍵：必須使用 BindingSource 來隔離，否則會連動 ★★★
+            // 必須使用 BindingSource 來隔離，否則會連動
             BindComboBox(cbMove1, dtMoves);
             BindComboBox(cbMove2, dtMoves);
             BindComboBox(cbMove3, dtMoves);

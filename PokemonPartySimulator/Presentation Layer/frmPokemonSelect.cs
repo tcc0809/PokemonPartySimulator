@@ -139,7 +139,7 @@ namespace PokemonPartySimulator.Presentation_Layer
             }
             else
             {
-                // ⭐ 【關鍵新增】如果 firstClick 是 null，代表搜尋不到任何資料
+                // 如果 firstClick 是 null，代表搜尋不到任何資料
                 // 這時候必須「手動清空」右邊的詳細資料
                 ClearDetails();
             }
@@ -279,7 +279,7 @@ namespace PokemonPartySimulator.Presentation_Layer
             // 遍歷列表中的每一個 StatBar
             for (int i = 0; i < _statBars.Count; i++)
             {
-                // 1. 【核心】取出 Struct 的複本 (以便修改)
+                // 1. 取出 Struct 的複本
                 StatBar bar = _statBars[i];
 
                 if (bar.CurrentValue < bar.TargetValue)
