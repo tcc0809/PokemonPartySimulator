@@ -19,7 +19,7 @@ Disclaimer:
 This project is for educational and personal portfolio purposes only.
 All Pokémon images, names, and related media are intellectual property of 
 Nintendo, Creatures Inc., and GAME FREAK Inc.
-No copyright infringement is intended." +
+No copyright infringement is intended." 
 
 
 Trash icon and Export icon created by Freepik Flaticon
