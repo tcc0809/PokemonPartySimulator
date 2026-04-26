@@ -5,3 +5,21 @@
 每隻最多可以設定四個該寶可夢可以學會的招式。
 
 同時可以隨時儲存，讀取，匯出隊伍。
+
+使用前須配置 SQL Server，可用專案內的 .sql 進行檔案配置。
+
+
+
+免責聲明：本專案為個人練習與學術用途（C# WinForm 與 SQL 資料庫實作），非商業專案。
+所有寶可夢相關的圖片、名稱、數據等素材，
+其版權皆屬於 Nintendo、Creatures Inc. 以及 GAME FREAK Inc. 所有。
+若有侵權疑慮請聯繫開發者，將立即下架相關內容。" 
+
+Disclaimer:
+This project is for educational and personal portfolio purposes only.
+All Pokémon images, names, and related media are intellectual property of 
+Nintendo, Creatures Inc., and GAME FREAK Inc.
+No copyright infringement is intended." 
+
+
+Trash icon and Export icon created by Freepik Flaticon
