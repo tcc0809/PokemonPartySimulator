@@ -3,7 +3,7 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 //主要資料流使用 Typed DataSet (TableAdapter) 進行快速開發與記憶體操作，
-//但在特定複雜查詢或精準讀取時，混用了原生 ADO.NET 以優化效能。
+//但在特定複雜查詢或精準讀取時，混用了原生 ADO.NET 以提升效能。
 namespace PokemonPartySimulator
 {
     public partial class frmMain : Form
@@ -11,7 +11,6 @@ namespace PokemonPartySimulator
         public frmMain()
         {
             InitializeComponent();
-            //panel1.BackColor = Color.FromArgb(65, 204, 212, 230);
             // 1. 把所有需要「移入特效」的 Label 整理成一個陣列
             Label[] menuLabels = { labNew, labLoad, labRight, labClose }; 
 

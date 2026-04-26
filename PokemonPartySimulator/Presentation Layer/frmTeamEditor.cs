@@ -59,13 +59,7 @@ namespace PokemonPartySimulator.Presentation_Layer
         {
             // 1. 取得目前隊伍中實際存在的成員數量
             int count = currentTeam.Count(m => m != null && m.PokemonID > 0);
-            // =>：Lambda 運算式 (Lambda Expression)
-            // 位置：在 Count() 方法的括號裡面。
-            // 作用：它是一個 「匿名函數(Anonymous Function)」。
-            // 白話解釋：它讀作 「Goes to(送到)」。
-            // 左邊的 m 是我們暫時給陣列裡「每一個成員」取的代號（就像數學 X）。
-            // 右邊的 m != null... 是我們對 X 下的指令（檢查條件）。
-            // 針對裡面的每一個 m，請執行計算 currentTeam 陣列裡，不等於 null 且 PokemonID 大於 0 的成員總共有幾個。
+            // 針對裡面的每一個 m，執行計算 currentTeam 陣列裡，不等於 null 且 PokemonID 大於 0 的成員總共有幾個。
             /*  等於用foreach這樣寫 
                     int count = 0;
                     foreach (var m in currentTeam) // 針對裡面的每一個 m
@@ -94,7 +88,7 @@ namespace PokemonPartySimulator.Presentation_Layer
                 {
                     // 「下一個」空位：顯示 + 號
                     _slots[i].Visible = true;
-                    _slots[i].ClearSlot(); // 確保它是乾淨的 + 號
+                    _slots[i].ClearSlot(); // 確保是乾淨的 + 號
                 }
                 else
                 {
@@ -106,7 +100,7 @@ namespace PokemonPartySimulator.Presentation_Layer
             // -------------------------------------------------------
             // B. 處理屬性分析邏輯 (整合分析功能)
             // -------------------------------------------------------
-            // 1. 呼叫我們寫在 TypeHelper 的分析邏輯 (純計算)
+            // 1. 呼叫寫在 TypeHelper 的分析邏輯 (純計算)
             var stats = TypeHelper.AnalyzeTeamTypes(currentTeam);
 
             // 2. 更新 UI 上的分析 Label
@@ -120,7 +114,7 @@ namespace PokemonPartySimulator.Presentation_Layer
                 string result = string.Join(", ", stats.Select(kv => $"{kv.Key} x{kv.Value}"));
                 labTypeAnalysis.Text = "隊伍屬性分佈：" + result;
             }
-            // ... 前面處理格子顯示和屬性分佈的代碼 (你已經寫好的) ...
+            // ... 前面處理格子顯示和屬性分佈的代碼 (已經寫好的) ...
 
             // -------------------------------------------------------
             // C. 弱點警告邏輯 (新功能)
@@ -140,7 +134,7 @@ namespace PokemonPartySimulator.Presentation_Layer
             // 2. 呼叫分析邏輯
             var weaknessStats = TypeHelper.AnalyzeTeamWeaknesses(currentTeam);
 
-            // 3. ★★★ 動態計算警告門檻 ★★★
+            // 3. 動態計算警告門檻
             // 人數 1-2 -> 門檻 1
             // 人數 3-4 -> 門檻 2
             // 人數 5-6 -> 門檻 3
@@ -176,13 +170,13 @@ namespace PokemonPartySimulator.Presentation_Layer
         }
         private void ReorganizeTeam()
         {
-            // 1. 使用 LINQ 取出目前所有「非空」的寶可夢資料
+            // 1. 使用 LINQ 取出目前所有非空的寶可夢資料
             var activeMembers = currentTeam
                 .Where(m => m != null && m.PokemonID > 0)
                 .ToList();
 
             // 2. 徹底清空目前的 UI 與 陣列 (重置狀態)
-            // 這裡我們不呼叫 ClearAllSlots 是為了避免清掉 TeamName
+            // 這裡不呼叫 ClearAllSlots 是為了避免清掉 TeamName
             foreach (var slot in _slots) slot.ClearSlot();
             Array.Clear(currentTeam, 0, currentTeam.Length);
 
@@ -191,7 +185,7 @@ namespace PokemonPartySimulator.Presentation_Layer
             {
                 var member = activeMembers[i];
 
-                // ★ 重要：更新資料內部的 SlotIndex
+                // 更新資料內部的 SlotIndex
                 member.SlotIndex = i;
                 currentTeam[i] = member;
 
@@ -219,7 +213,7 @@ namespace PokemonPartySimulator.Presentation_Layer
         }
         private void LoadTeamData(int teamID)
         {
-            // 1. 透過 Manager 取得物件化的清單 (不用再寫 SQL 或 DataTable 了)
+            // 1. 透過 Manager 取得物件化的清單 (不用再寫 SQL 或 DataTable )
             var members = TeamManager.GetTeamMembers(teamID);
 
             // 2. 清空目前的 UI 與 陣列 (重置狀態)
@@ -257,11 +251,11 @@ namespace PokemonPartySimulator.Presentation_Layer
         }
         private void OnRemoveClicked(object sender, EventArgs e)
         {
-            // 3. 轉型取得是被點的那個控制項 (跟 OnSlotClicked 邏輯一樣)
+            // 3. 轉型取得是被點的那個控制項 (同OnSlotClicked)
             ucTeamSlot clickedSlot = sender as ucTeamSlot;
             if (clickedSlot == null) return;
 
-            // 4. 執行清空邏輯 (刪除確認)
+            // 4. 刪除確認
             string clickedSlotName = TeamManager.GetPokemonNameByID(clickedSlot.PokemonID);
             DialogResult result = MessageBox.Show(
                 $"確定要從隊伍中移除 {clickedSlotName} 嗎？",
@@ -272,7 +266,7 @@ namespace PokemonPartySimulator.Presentation_Layer
 
             if (result == DialogResult.Yes)
             {
-                clickedSlot.ClearSlot();  // 呼叫你寫在 ucTeamSlot 裡的清空方法
+                clickedSlot.ClearSlot();  // 呼叫寫在 ucTeamSlot 裡的清空方法
 
                 // 清空 currentTeam 陣列
                 currentTeam[clickedSlot.SlotIndex] = null;
@@ -288,7 +282,7 @@ namespace PokemonPartySimulator.Presentation_Layer
             if (clickedSlot.PokemonID == -1)
             {
                 // Case A: 空位 -> 開啟選擇視窗 (用 _selectForm)
-                // 這段程式碼在你的 if 區塊裡面
+                // 這段程式碼在 if 區塊裡面
 
                 if (_selectForm == null || _selectForm.IsDisposed)
                 {
@@ -341,10 +335,10 @@ namespace PokemonPartySimulator.Presentation_Layer
                         string m3Name = TeamManager.GetMoveNameByID(moveForm.Move3_ID);
                         string m4Name = TeamManager.GetMoveNameByID(moveForm.Move4_ID);
 
-                        // 2. 更新 UI (假設你已經在 ucTeamSlot 裡加入了 SetMoves 方法)
+                        // 2. 更新 UI 
                         clickedSlot.SetMoves(m1Name, m2Name, m3Name, m4Name);
 
-                        //  3. 【重要】更新 currentTeam 陣列裡的招式 ID
+                        //  3. 更新 currentTeam 陣列裡的招式 ID
                         int slotIndex = clickedSlot.SlotIndex;
 
                         // 確保格子裡真的有東西
@@ -367,13 +361,9 @@ namespace PokemonPartySimulator.Presentation_Layer
         private void btnClearTeam_Click(object sender, EventArgs e)
         {
             // 1. 清空記憶體陣列
-            // 方式 A：直接重新 new 一個 (最快)
             currentTeam = new TeamMember[6];
 
-            // 方式 B：如果你想保留陣列物件只是清空內容
-            // Array.Clear(currentTeam, 0, currentTeam.Length);
-
-            // 2. 清空 UI 控制項 (善用我們之前寫的 _slots 陣列)
+            // 2. 清空 UI 控制項
             foreach (var slot in _slots)
             {
                 slot.ClearSlot(); // 呼叫 ucTeamSlot 內部的清空邏輯

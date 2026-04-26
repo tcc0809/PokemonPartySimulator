@@ -156,8 +156,8 @@ namespace PokemonPartySimulator.Business_Logic_Layer
 
             if (dt.Rows.Count > 0)
             {
-                // 2. 使用你的翻譯官 (SqlMapper) 將這一列資料轉成完整的物件
-                // 這樣你拿到的物件裡面就有：名字、Type1、Type2、種族值等所有資訊
+                // 2. 使用 SqlMapper 將這一列資料轉成完整的物件
+                // 這樣拿到的物件裡面就有：名字、Type1、Type2、種族值等所有資訊
                 return SqlMapper.ToPokemon(dt.Rows[0]);
             }
 

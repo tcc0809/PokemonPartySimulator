@@ -14,18 +14,18 @@ namespace PokemonPartySimulator.Data_Access_Layer
     internal class DBHelper
     {
         // 1. 取得連線字串
-        // 因為有用 TableAdapter，VS 已經把連線字串存在 Properties.Settings 裡了
-        // 這樣就不用複製貼上一長串連線字串
+        // 因為有用 TableAdapter，已經把連線字串存在 Properties.Settings 裡了
+        // 就不用複製貼上一長串連線字串
         private static string ConnStr = Properties.Settings.Default.PokemonPartySimulatorConnectionString;
 
-        // 2. 建立一個「靜態方法 (static)」
-        // 這樣你在別的地方只要打 DBHelper.GetDataTable(...) 就可以直接用，不用 new DBHelper()
+        // 2. 建立一個靜態方法
+        // 這樣在別的地方只要打 DBHelper.GetDataTable(...) 就可以直接用，不用 new DBHelper()
         internal static DataTable GetDataTable(string sql, params SqlParameter[] parameters)
-        //params 的主要作用是提供一種 「語法糖 (Syntactic Sugar)」，讓你在呼叫方法時，可以更彈性、更簡潔地傳遞參數。
+        //params 的主要作用是提供一種語法糖，在呼叫方法時，可以更彈性、更簡潔地傳遞參數。
         //它的功能是：
-        //1. 接受陣列：你可以傳遞一個完整的 SqlParameter[] 陣列給它。
-        //2. 接受多個單獨參數：你也可以直接傳遞多個單獨的 SqlParameter 實例，C# 編譯器會自動幫你把這些單獨的參數包裝成一個陣列。
-        //3. 接受零個參數：你也可以不傳任何東西，此時 C# 會傳遞一個長度為零的空陣列。
+        //1. 接受陣列：可以傳遞一個完整的 SqlParameter[] 陣列給它。
+        //2. 接受多個單獨參數：也可以直接傳遞多個單獨的 SqlParameter 實例，C# 編譯器會自動把這些單獨的參數包裝成一個陣列。
+        //3. 接受零個參數：也可以不傳任何東西，此時 C# 會傳遞一個長度為零的空陣列。
         {
             DataTable dt = new DataTable();
 

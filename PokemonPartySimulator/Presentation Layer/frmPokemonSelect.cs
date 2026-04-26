@@ -8,8 +8,8 @@ using System.Drawing;
 using System.Windows.Forms;
 
 //使用 TableAdapter。
-//優點：因為要顯示大量資料列表，DataSet 幫你把資料一次拉到記憶體 (DataTable)，然後用 DataView 做篩選，
-//這樣做搜尋功能（如 ApplyFilter）非常快，不用每次打字都去問資料庫。
+//優點：因為要顯示大量資料列表，DataSet 把資料一次拉到記憶體 (DataTable)，然後用 DataView 做篩選，
+//這樣做搜尋功能（ApplyFilter）非常快，不用每次打字都去問資料庫。
 namespace PokemonPartySimulator.Presentation_Layer
 {
     public partial class frmPokemonSelect : Form
@@ -40,15 +40,15 @@ namespace PokemonPartySimulator.Presentation_Layer
 
             List<string> filterParts = new List<string>();
 
-            // 2. 名字條件 (記得括號！)
-            // 邏輯：(中文名包含 OR 英文名包含)
+            // 2. 名字條件
+            // 中文名包含 OR 英文名包含
             if (!string.IsNullOrEmpty(searchText))
             {
                 filterParts.Add($" (Name_CH LIKE '%{searchText}%' OR Name_EN LIKE '%{searchText}%') ");
             }
 
-            // 3. 屬性條件 (記得括號！)
-            // 邏輯：(Type1是.. OR Type2是..)
+            // 3. 屬性條件
+            // Type1是.. OR Type2是..
             if (selectedChineseType != "全部屬性")
             {
                 string typeEN = TypeHelper.ToEnglish(selectedChineseType);
@@ -59,7 +59,7 @@ namespace PokemonPartySimulator.Presentation_Layer
             }
 
             // 4. 組合條件 (用 AND 連接)
-            // 最終字串會像： (名字..) AND (屬性..)
+            // (名字..) AND (屬性..)
             string finalFilter = filterParts.Count > 0 ? string.Join(" AND ", filterParts) : null;
 
             DataView view = new DataView(pokemonPartySimulatorDataSet.PokemonData);
@@ -70,7 +70,7 @@ namespace PokemonPartySimulator.Presentation_Layer
         }
         private void RefreshPokemonList(DataView view)
         {
-            // 1. 【重要】先清空目前的畫面，不然搜尋結果會疊加上去
+            // 1. 先清空目前的畫面，不然搜尋結果會疊加上去
             LayoutPanelPS.SuspendLayout();
             LayoutPanelPS.Controls.Clear();
 
@@ -92,7 +92,7 @@ namespace PokemonPartySimulator.Presentation_Layer
                 pbx.SizeMode = PictureBoxSizeMode.Zoom;
                 pbx.Tag = pm.PokemonID; // 存 ID
 
-                // (2) 修正 imageKey，直接拿物件的 ID
+                // (2) imageKey，直接拿物件的 ID
                 string imageKey = $"{pm.PokemonID}.png";
 
                 if (imageListPokemon.Images.ContainsKey(imageKey))
@@ -132,19 +132,18 @@ namespace PokemonPartySimulator.Presentation_Layer
             // 3. 模擬點擊第一個
             if (firstClick != null)
             {
-                // 這行會直接觸發 BtnSelect_Click 事件
-                // 就像使用者真的用滑鼠點了一下第一顆按鈕一樣
-                // 圖片會載入，Timer 動畫也會開始跑！
+                // 模擬使用者真的用滑鼠點了一下第一顆按鈕，一樣圖片會載入，Timer 動畫也會開始跑
                 Item_Click(firstClick, EventArgs.Empty);
             }
             else
             {
                 // 如果 firstClick 是 null，代表搜尋不到任何資料
-                // 這時候必須「手動清空」右邊的詳細資料
+                // 這時候必須手動清空右邊的詳細資料
                 ClearDetails();
             }
             LayoutPanelPS.ResumeLayout();
         }
+        // 讓整個使用者控制項案道都會觸發
         private void Item_Click(object sender, EventArgs e)
         {
             // 1. 因為 sender 可能是 Panel, Label 或 PictureBox
@@ -179,8 +178,8 @@ namespace PokemonPartySimulator.Presentation_Layer
 
             if (currentRow != null)
             {
-                // 3. 手動填入 TextBox (因為繞過了 BindingSource)
-                // 這樣做不會受 Filter 影響
+                // 3. 手動填入 TextBox (繞過了 BindingSource)
+                // 這樣不會受 Filter 影響
                 pokemonIDTextBox.Text = currentRow.PokemonID.ToString();
                 name_ENTextBox.Text = currentRow.Name_EN;
                 name_CHTextBox.Text = currentRow.Name_CH;
@@ -206,8 +205,8 @@ namespace PokemonPartySimulator.Presentation_Layer
                         new StatBar { Control = pnlSP, TargetValue = currentRow.Special, Name = "Special", ValueControl = labSP },
                         new StatBar { Control = pnlSpeed, TargetValue = currentRow.Speed, Name = "Speed", ValueControl = labSpeed },
                     };
-                // ⭐ 將所有血條視覺上「歸零」
-                // 如果不加這段，切換寶可夢時，血條可能會從上一次的長度繼續跑，或者卡住
+                // 將所有血條視覺上歸零
+                // 如果不加，切換寶可夢時，血條會從上一次的長度繼續跑，或卡住
                 foreach (var bar in _statBars)
                 {
                     bar.Control.Size = new Size(0, bar.Control.Size.Height);
@@ -257,7 +256,6 @@ namespace PokemonPartySimulator.Presentation_Layer
 
         private void frmPokemonSelect_Load(object sender, EventArgs e)
         {
-            // TODO: 這行程式碼會將資料載入 'pokemonPartySimulatorDataSet.PokemonData' 資料表。您可以視需要進行移動或移除。
             ApplyFilter();
         }
 
@@ -271,9 +269,9 @@ namespace PokemonPartySimulator.Presentation_Layer
             bool allFinished = true; // 追蹤所有動畫是否都已完成
             //int stepSize = 10;       // 每次增加的步長 (可調整，數字越大，跑越快)
 
-            // ⭐ 你的介面血條最長可以是多少像素？
+            // ⭐ 血條最長可以是多少像素
             const int MAX_BAR_PIXEL_WIDTH = 270;
-            // ⭐ 你的寶可夢總數值上限是多少？ (Base Total Max)
+            // ⭐ 寶可夢總數值上限是多少
             const int GLOBAL_MAX_STAT_VALUE = 700; // 假設 Base Total 上限為 600
 
             // 遍歷列表中的每一個 StatBar
@@ -313,7 +311,7 @@ namespace PokemonPartySimulator.Presentation_Layer
                     // 使用新的 "ValueControl" (Label) 來設定位置
                     bar.ValueControl.Location = new Point(newX, bar.ValueControl.Location.Y);
 
-                    // 7. 【重要】將修改後的 Struct 複本寫回列表 (因為 struct 是值型別)
+                    // 7.將修改後的 Struct 複本寫回列表 (因為 struct 是傳值型別，不是傳位置)
                     _statBars[i] = bar;
 
                 }

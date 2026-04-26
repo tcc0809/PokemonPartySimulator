@@ -16,7 +16,7 @@ namespace PokemonPartySimulator
         public int SlotIndex { get; set; } // 這是第幾格 (0-5)
         
         public int PokemonID { get; private set; } = -1;
-        // private set (封裝)：外部（主視窗）不能直接修改 ID（例如不能寫 slot1.PokemonID = 5），必須透過你提供的 SetPokemon 或 ClearSlot 方法來改。
+        // private set (封裝)：外部（主視窗）不能直接修改 ID（例如不能寫 slot1.PokemonID = 5），必須透過 SetPokemon 或 ClearSlot 方法來改。
         // 這樣保證了 UI 和數據永遠同步，不會出現「ID 改了但圖片沒變」的 Bug。
         // -1 代表空位，預設為1代表還沒選。
 
@@ -116,8 +116,8 @@ namespace PokemonPartySimulator
             // 使用 ?.Invoke() 安全地通知所有訂閱者
             RemoveClicked?.Invoke(this, e);
 
-            // 注意：這裡只負責「發通知」，不負責「清空」
-            // 清空邏輯要留給主視窗 frmTeamEditor 執行！
+            // 這裡只負責「發通知」，不負責「清空」
+            // 清空邏輯要留給主視窗 frmTeamEditor 執行
         }
 
         // 設定這格的資料

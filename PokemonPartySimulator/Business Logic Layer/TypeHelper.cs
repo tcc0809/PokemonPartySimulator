@@ -11,7 +11,7 @@ namespace PokemonPartySimulator.Business_Logic_Layer
     internal static class TypeHelper
     {
         // 字典：中文 (Key) -> 英文 (Value)
-        // 根據你資料庫的實際內容，英文部分要注意大小寫 (例如 "fire" 還是 "Fire")
+        // 根據資料庫的實際內容，英文部分要注意大小寫 (例如 "fire" 還是 "Fire")
         internal static readonly Dictionary<string, string> _typeMap = new Dictionary<string, string>
         {
             { "一般", "Normal" },
@@ -104,17 +104,16 @@ namespace PokemonPartySimulator.Business_Logic_Layer
             return ""; // 找不到就回傳空字串
         }
 
-        // 功能 2: 給英文，回傳中文 (如果你要從資料庫讀出來顯示在介面上)
+        // 功能 2: 給英文，回傳中文 (如果要從資料庫讀出來顯示在介面上)
         internal static string ToChinese(string englishType)
         {
             // 反向搜尋：找 Value 對應的 Key
-            // 注意：這裡用了 Linq，記得上方要 using System.Linq;
             // 忽略大小寫比較 (IgnoreCase) 以防資料庫是 "fire" 但字典是 "Fire"
             var pair = _typeMap.FirstOrDefault(x => x.Value.Equals(englishType, System.StringComparison.OrdinalIgnoreCase));
 
             return pair.Key ?? englishType; 
-            // 如果找不到中文，就直接顯示原本的英文。這兩個問號 ?? 叫做 「空值接合運算子」 (Null-Coalescing Operator)。
-            // 它的意思是：「如果有值就用左邊的，如果是 null 就用右邊的。
+            // 如果找不到中文，就直接顯示原本的英文。
+            // 如果有值就用左邊的，如果是 null 就用右邊的。
         }
 
         // 功能 3: 取得所有中文屬性列表 (用來填入 ComboBox) 
@@ -135,7 +134,7 @@ namespace PokemonPartySimulator.Business_Logic_Layer
             {
                 if (member == null || member.PokemonID <= 0) continue;
 
-                // 這裡需要透過 TeamManager 拿到 Pokemon 的完整資訊 (才有 Type1, Type2)
+                // 需要透過 TeamManager 拿到 Pokemon 的完整資訊 (才有 Type1, Type2)
                 var pokemon = TeamManager.GetPokemonByID(member.PokemonID);
 
                 // 統計屬性 1
